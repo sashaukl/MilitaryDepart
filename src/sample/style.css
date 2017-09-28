@@ -1,0 +1,35 @@
+.toggle-button {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-background-color: inherit;
+}
+
+.toggle-button:selected {
+    -fx-rotate: 180deg;
+}
+
+#gap{
+    -fx-background-image: url("pics/GAP.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+}
+
+#py{
+    -fx-background-image: url("pics/PY.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+
+    -fx-min-width: 20%;
+
+}
+
+#planeThird{
+    -fx-background-image: url("pics/planeThird.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+}
+
+
+/*Отменить последние действие*/
+
+

@@ -9,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.SplitPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
@@ -31,48 +33,31 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root));
         primaryStage.setMaximized(true);
 
+
+
         primaryStage.show();
         //example
 
-        //SplitPane mainBox = SplitPane.getPrefWidth();
-        StackPane commonbox = ( StackPane) root.lookup("#commonBox");
-        commonbox.setAlignment(Pos.TOP_LEFT);
 
 
-        //SplitPane splitBox = (SplitPane) root.lookup("#splitBox");
-        Pane panel1 = (Pane) root.lookup("#gap");
+         AnchorPane commonbox = (AnchorPane) root.lookup("#commonBox");
 
-        panel1.setMinWidth(100);
-        //AnchorPane panel2 = (AnchorPane) root.lookup("#py");
-       // AnchorPane panel3 = (AnchorPane) root.lookup("#planeThird");
+
+        //init workspace containers
+        SplitPane splitBox = (SplitPane) root.lookup("#splitBox");
+        AnchorPane panel1 = (AnchorPane) root.lookup("#gap");
+        AnchorPane panel2 = (AnchorPane) root.lookup("#py");
+        AnchorPane panel3 = (AnchorPane) root.lookup("#planeThird");
         MenuBar menu = (MenuBar) root.lookup("#Menu");
 
-        //panel1.setMinHeight(commonbox.getHeight()- menu.getHeight());
+        //Get Max Values of containers
+        panel1.maxWidthProperty().bind(splitBox.heightProperty().divide(2) );
+        panel2.maxWidthProperty().bind(splitBox.heightProperty().divide(2.5) );
+        panel3.maxWidthProperty().bind(splitBox.heightProperty().divide(0.75) );
 
-        // SplitPane.setResizableWithParent(panel1,false);
-
-        //splitBox.
-        //primaryStage.getHeight();
-
-
-
-        //panel3.setLayoutY();
-        //panel1
-        //panel2.setPrefHeight(primaryStage.getHeight());
-        //panel3.setPrefHeight(primaryStage.getHeight());
-        // HBox Box = HBox root.lookup("#");
-
-        //Button btn = new Button("df");
-        //100/100
-        //btn.setLayoutX(panel1.getWidth() - panel1.getWidth();
+        //test field
 
 
-
-       // System.out.println(panel1.getPrefWidth());
-
-
-        //ta.setPrefSize(ta.getPrefWidth() + 600, ta.getPrefHeight() + 500);
-        //ta.setPrefWidth(ta.getPrefWidth() + 100);
 
     }
 

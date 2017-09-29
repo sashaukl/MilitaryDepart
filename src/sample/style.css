@@ -10,25 +10,31 @@
 
 #gap{
     -fx-background-image: url("pics/GAP.png");
-    -fx-background-repeat: no-repeat;
-    -fx-background-size: contain;
+    -fx-background-repeat: round;
+    -fx-background-size: cover;
 
 }
 
 #py{
     -fx-background-image: url("pics/PY.png");
-    -fx-background-repeat: no-repeat;
-    -fx-background-size: contain;
-
-    -fx-min-width: 20%;
-
+    -fx-background-repeat: round;
+    -fx-background-size: cover;
 }
 
 #planeThird{
     -fx-background-image: url("pics/planeThird.png");
-    -fx-background-repeat: no-repeat;
-    -fx-background-size: contain;
+    -fx-background-repeat: round;
+    -fx-background-size: cover;
 }
+
+#firstLabelPanel1 {
+
+}
+#secondLabelPanel1{
+
+}
+
+
 
 
 /*Отменить последние действие*/

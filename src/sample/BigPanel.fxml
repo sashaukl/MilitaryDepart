@@ -1,36 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BigPanel">
    <children>
-       <MenuBar fx:id="Menu" maxHeight="-Infinity" prefHeight="25.0" prefWidth="733.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-           <menus>
-               <Menu mnemonicParsing="false" text="File">
-                   <items>
-                       <MenuItem fx:id="closeBtn" mnemonicParsing="false" text="Закрыть" />
-                       <MenuItem fx:id="exit" mnemonicParsing="false" text="Выход из программы" />
-                   </items>
-               </Menu>
-               <Menu mnemonicParsing="false" text="Edit">
-                   <items>
-                       <MenuItem mnemonicParsing="false" text="Delete" />
-                   </items>
-               </Menu>
-           </menus>
-       </MenuBar>
-      <HBox alignment="CENTER" layoutY="25.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
-         <children>
-            <Pane fx:id="gap" prefHeight="375.0" prefWidth="187.0" />
-            <StackPane fx:id="py" prefHeight="375.0" prefWidth="149.0" />
-         </children>
-      </HBox>
+      <SplitPane dividerPositions="0.5" layoutY="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+         <items>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Pane fx:id="gap" prefHeight="100.0" prefWidth="100.0" />
+                  <Pane fx:id="py" />
+               </children>
+            </HBox>
+            <Pane fx:id="planeThird" prefHeight="373.0" prefWidth="237.0" />
+         </items>
+      </SplitPane>
    </children>
 </AnchorPane>

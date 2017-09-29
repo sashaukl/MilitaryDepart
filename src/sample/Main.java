@@ -40,7 +40,7 @@ public class Main extends Application {
 
 
 
-         AnchorPane commonbox = (AnchorPane) root.lookup("#commonBox");
+        AnchorPane commonbox = (AnchorPane) root.lookup("#commonBox");
 
 
         //init workspace containers
@@ -51,6 +51,9 @@ public class Main extends Application {
         MenuBar menu = (MenuBar) root.lookup("#Menu");
 
         //Get Max Values of containers
+        panel1.prefWidthProperty().bind(splitBox.heightProperty().divide(2) );
+        panel2.prefWidthProperty().bind(splitBox.heightProperty().divide(2.5) );
+
         panel1.maxWidthProperty().bind(splitBox.heightProperty().divide(2) );
         panel2.maxWidthProperty().bind(splitBox.heightProperty().divide(2.5) );
         panel3.maxWidthProperty().bind(splitBox.heightProperty().divide(0.75) );

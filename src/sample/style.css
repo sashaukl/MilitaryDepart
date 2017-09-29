@@ -10,12 +10,14 @@
 
 #gap{
     -fx-background-image: url("pics/GAP.png");
+    -fx-background-color: aqua;
     -fx-background-repeat: round;
     -fx-background-size: cover;
 
 }
 
 #py{
+    -fx-background-color: aquamarine;
     -fx-background-image: url("pics/PY.png");
     -fx-background-repeat: round;
     -fx-background-size: cover;

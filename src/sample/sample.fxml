@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.AnchorPane?>
-
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+
 <AnchorPane fx:id="commonBox" minHeight="400.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <MenuBar fx:id="Menu" prefHeight="25.0" prefWidth="733.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -25,12 +30,35 @@
           </Menu>
         </menus>
       </MenuBar>
-      <SplitPane fx:id="splitBox" dividerPositions="0.33515731874145005, 0.5882352941176471" layoutY="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+      <SplitPane fx:id="splitBox" dividerPositions="0.33515731874145005" layoutY="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
          <items>
 
              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                  <children>
-                     <AnchorPane fx:id="gap" minHeight="-Infinity" prefWidth="156.0" stylesheets="@style.css" />
+                     <Pane fx:id="gap" minHeight="-Infinity" prefWidth="156.0" stylesheets="@style.css">
+                         <children>
+                             <Label fx:id="string1Label1" text="ВВОД ИВП 1" />
+                             <Label fx:id="string1Label2" text="ВВОД ИВП 2" />
+                             <Label fx:id="string2Label1" text="неиспр"/>
+                             <Label fx:id="string2Label2" text="раб"/>
+                             <Label fx:id="string2Label3" text="дм"/>
+                             <Label fx:id="string2Label4" text="неиспр"/>
+                             <Label fx:id="string2Label5" text="раб"/>
+
+                             <Circle fx:id="redLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE"/>
+                             <Circle fx:id="greenLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE"/>
+                             <Circle fx:id="yellowLight" radius="12.0" stroke="BLACK" strokeType="INSIDE"/>
+                             <Circle fx:id="redLight2" radius="12.0" stroke="BLACK" strokeType="INSIDE"/>
+                             <Circle fx:id="redLight3" radius="12.0" stroke="BLACK" strokeType="INSIDE"/>
+
+                             <Label fx:id="string3Label1" text="првс1гап"/>
+
+
+
+
+                         </children>
+
+                     </Pane>
                      <AnchorPane fx:id="py" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@style.css" />
                  </children>
              </HBox>

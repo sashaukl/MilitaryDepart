@@ -36,8 +36,37 @@
 
 }
 
+#string1Label1, #string1Label2{
+    -fx-font-size: 11px;
+    -fx-font-weight: bolder;
+    -fx-hgap: 0;
+}
+
+#redLight1,#redLight2,#redLight3{
+    -fx-stroke-width: 3px;
+    -fx-fill: darkred;
+}
 
 
+Label{
+    -fx-font-family: sans-serif;
+    -fx-font-weight: 700;
+}
+
+
+#yellowLight{
+    -fx-stroke-width: 3px;
+    -fx-fill: #ffb836;
+}
+
+#greenLight1{
+    -fx-stroke-width: 3px;
+    -fx-fill: darkgreen;
+}
+
+#blackLight1{
+
+}
 
 /*Отменить последние действие*/
 

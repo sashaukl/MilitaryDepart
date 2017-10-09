@@ -1,3 +1,4 @@
+/*
 .toggle-button {
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
@@ -5,12 +6,14 @@
 }
 
 .toggle-button:selected {
-    -fx-rotate: 180deg;
+//-fx-rotate: 180deg;
 }
+*/
 
 #gap{
     -fx-background-image: url("pics/GAP.png");
-    -fx-background-color: aqua;
+    -fx-background-color: #9ca198;
+    -fx-border-radius: 200;
     -fx-background-repeat: round;
     -fx-background-size: cover;
 
@@ -29,24 +32,16 @@
     -fx-background-size: cover;
 }
 
-#firstLabelPanel1 {
-
-}
-#secondLabelPanel1{
-
-}
-
 #string1Label1, #string1Label2{
     -fx-font-size: 11px;
     -fx-font-weight: bolder;
     -fx-hgap: 0;
 }
 
-#redLight1,#redLight2,#redLight3{
+.redLight{
     -fx-stroke-width: 3px;
     -fx-fill: darkred;
 }
-
 
 Label{
     -fx-font-family: sans-serif;
@@ -54,19 +49,46 @@ Label{
 }
 
 
-#yellowLight{
+#yellowLight1{
     -fx-stroke-width: 3px;
     -fx-fill: #ffb836;
 }
 
-#greenLight1{
+.greenLight{
     -fx-stroke-width: 3px;
     -fx-fill: darkgreen;
 }
 
-#blackLight1{
-
+.blackLight{
+    -fx-stroke-width: 3px;
+    -fx-fill: dimgrey;
 }
+
+.grayButton {
+    -fx-border-color: aliceblue;
+    -fx-background-color: #3c3b3b;
+    -fx-border-width: 1;
+}
+
+.toggle-button{
+    -fx-background-insets: 0;
+}
+
+.grayButton:selected{
+    -fx-border-color: gray;
+    -fx-border-width: 3px;
+}
+
+.redButton {
+    -fx-border-color: aliceblue;
+    -fx-background-color: darkred;
+    -fx-border-width: 1;
+}
+.redButton:selected{
+    -fx-border-color: gray;
+    -fx-border-width: 3px;
+}
+
 
 /*Отменить последние действие*/
 

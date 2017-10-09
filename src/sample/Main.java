@@ -23,7 +23,7 @@ public class Main extends Application {
 
     private SplitPane splitBox;
     private Pane panel1;
-    private AnchorPane panel2;
+    private Pane panel2;
     private AnchorPane panel3;
     private MenuBar menu;
 
@@ -39,6 +39,7 @@ public class Main extends Application {
     //yellowLight
     private Circle yellowLight1;
     //greenLights
+        //panel1
     private Circle greenLight1;
     private Circle greenLight2;
     private Circle greenLight3;
@@ -47,6 +48,8 @@ public class Main extends Application {
     private Circle greenLight6;
     private Circle greenLight7;
     private Circle greenLight8;
+        //panel2
+    private Circle greenLight9;
 
     //blackLight
     private Circle blackLight1;
@@ -111,6 +114,7 @@ public class Main extends Application {
 
     //red button
     private ToggleButton redButton1;
+    private ToggleButton redButton2;
 
 
     //private Circle redLight4;
@@ -137,7 +141,7 @@ public class Main extends Application {
         //init workspace containers
         splitBox = (SplitPane) root.lookup("#splitBox");
         panel1 = (Pane) root.lookup("#gap");
-        panel2 = (AnchorPane) root.lookup("#py");
+        panel2 = (Pane) root.lookup("#py");
         panel3 = (AnchorPane) root.lookup("#planeThird");
         menu = (MenuBar) root.lookup("#Menu");
 
@@ -332,8 +336,15 @@ public class Main extends Application {
         setLight(redLight6, 0.425, 0.71);
         setLight(redLight7, 0.57, 0.71);
 
+        redButton2 = (ToggleButton) root.lookup("#redButton2");
+        setButton(redButton2,0.449, 0.75);
 
-        System.out.println(  );
+        // panel2
+        greenLight9 = (Circle) root.lookup("#greenLight9");
+        setLight(greenLight9, 0.5, 0.5);
+
+
+        System.out.println( "" );
     }
 
     private void setButton(ToggleButton tb, double x, double y){
@@ -349,6 +360,7 @@ public class Main extends Application {
     }
 
     private void setLabel(Label label, double x, double y){
+        label.layoutXProperty().bind(splitBox.heightProperty().divide(2).multiply(x));
         label.layoutXProperty().bind(splitBox.heightProperty().divide(2).multiply(x));
         label.layoutYProperty().bind(panel1.heightProperty().multiply(y));
         label.styleProperty().bind(Bindings.concat("-fx-font-size: ", fontSize.asString(), ";"));

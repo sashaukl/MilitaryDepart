@@ -302,14 +302,12 @@ public class Panel1 extends Controller{
         setTumbler(tumbler1, 0.23, 0.605);
         setTumbler(tumbler2, 0.27, 0.69);
         setTumbler(tumblerButton2, 0.745, 0.435);
-
         setTumbler1(tumblerButton1, 0.185, 0.435);
 
 
 
         //events
         tumblerButton1.setOnMouseClicked( event -> {
-            System.out.println( (int) tumblerButton1.getRotate());
             switch ((int) tumblerButton1.getRotate()){
                 case 0:
                     tumblerButton1.setRotate(90);
@@ -388,7 +386,6 @@ public class Panel1 extends Controller{
 
     private void setTumbler1(Button b, double x, double y){
         //buttonBase because using toggleButton and button at this method
-        //0,6178010471204188481675392670157
         b.minHeightProperty().bind(splitBox.heightProperty().divide(20));
         b.minWidthProperty().bind(splitBox.heightProperty().divide(20));
         b.maxHeightProperty().bind(splitBox.heightProperty().divide(20));
@@ -396,4 +393,5 @@ public class Panel1 extends Controller{
         b.layoutXProperty().bind(splitBox.heightProperty().divide(2).multiply(x));
         b.layoutYProperty().bind(splitBox.heightProperty().multiply(y));
     }
+
 }

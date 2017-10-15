@@ -184,12 +184,27 @@
                          <ToggleButton fx:id="panel2tumbler7" styleClass="Tumbler" />
                          <ToggleButton fx:id="panel2tumbler8" styleClass="Tumbler" />
 
+                         <Button fx:id="panel2tumblerButton1" rotate="325" styleClass="blackSwitcher" />
+                         <Button fx:id="panel2tumblerButton2" rotate="52" styleClass="blackSwitcher" />
 
 
                      </Pane>
                  </children>
              </HBox>
-            <AnchorPane fx:id="planeThird" minHeight="-Infinity" prefWidth="245.0" stylesheets="@style.css" />
+            <Pane fx:id="planeThird" minHeight="-Infinity" prefWidth="245.0" stylesheets="@style.css">
+                <Label fx:id="panel3Label1" text="МОЩНОСТЬ" />
+                <Label fx:id="panel3Label2" text="СИСТЕМА Д-20" />
+                <Label fx:id="panel3Label3" text="0,45-0,70" />
+                <Label fx:id="panel3Label4" text="ЗАПРЕТ" />
+                <Label fx:id="panel3Label5" text="ОТКЛ ПИТАНИЯ" />
+                <Label fx:id="panel3Label6" text="КОНТР СИГНАЛА" />
+                <Label fx:id="panel3Label7" text="ЛЧМ" />
+                <Label fx:id="panel3Label8" text="ПРОБОЙ" />
+                <Label fx:id="panel3Label9" text="УЗЛ" />
+                <Label fx:id="panel3Label10" text="ВКЛ" />
+                <Label fx:id="panel3Label11" text="НАКАЛ Д20-0М" />
+
+            </Pane>
          </items>
          <rotationAxis>
             <Point3D />

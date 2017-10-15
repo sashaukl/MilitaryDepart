@@ -3,6 +3,7 @@ package sample;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
@@ -15,7 +16,7 @@ public class Controller{
     protected SplitPane splitBox;
     protected Pane panel1;
     protected Pane panel2;
-    protected AnchorPane panel3;
+    protected Pane panel3;
     protected MenuBar menu;
 
     //Controller() {}
@@ -31,7 +32,7 @@ public class Controller{
         splitBox = (SplitPane) root.lookup("#splitBox");
         panel1 = (Pane) root.lookup("#gap");
         panel2 = (Pane) root.lookup("#py");
-        panel3 = (AnchorPane) root.lookup("#planeThird");
+        panel3 = (Pane) root.lookup("#planeThird");
         menu = (MenuBar) root.lookup("#Menu");
 
         //Get Max Values of containers

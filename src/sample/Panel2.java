@@ -4,6 +4,7 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.binding.DoubleBinding;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.effect.Lighting;
@@ -54,6 +55,8 @@ public class Panel2 extends Controller{
     private ToggleButton tumbler7;
     private ToggleButton tumbler8;
 
+    private Button tumblerButton1;
+    private Button tumblerButton2;
 
 
     private DoubleProperty fontSize = new SimpleDoubleProperty(11);
@@ -103,6 +106,9 @@ public class Panel2 extends Controller{
         tumbler7 = (ToggleButton) root.lookup("#panel2tumbler7");
         tumbler8 = (ToggleButton) root.lookup("#panel2tumbler8");
 
+        tumblerButton1 = (Button) root.lookup("#panel2tumblerButton1");
+        tumblerButton2 = (Button) root.lookup("#panel2tumblerButton2");
+
 
 
     }
@@ -147,8 +153,39 @@ public class Panel2 extends Controller{
         setTumbler(tumbler7, 0.535, 0.405);
         setTumbler(tumbler8, 0.717, 0.405);
 
+        setTumbler1(tumblerButton1, 0.745,0.085);
+        setTumbler1(tumblerButton2, 0.745,0.5);
+        //tumblerButton1.setRotate(325);
+        tumblerButton1.setOnMouseClicked(ev ->{
+            switch ((int) tumblerButton1.getRotate()){
+                case 325:
+                    tumblerButton1.setRotate(0);
+                    break;
+                case 0:
+                    tumblerButton1.setRotate(90);
+                    break;
+                case 90:
+                    tumblerButton1.setRotate(130);
+                    break;
+                case 130:
+                    tumblerButton1.setRotate(325);
+                    break;
+            }
+        });
 
-
+        tumblerButton2.setOnMouseClicked(ev ->{
+            switch ((int) tumblerButton2.getRotate()){
+                case 52:
+                    tumblerButton2.setRotate(100);
+                    break;
+                case 100:
+                    tumblerButton2.setRotate(232);
+                    break;
+                case 232:
+                    tumblerButton2.setRotate(52);
+                    break;
+            }
+        });
     }
 
     private void setLight(Circle circle, double x, double y){
@@ -182,9 +219,14 @@ public class Panel2 extends Controller{
         tb.layoutYProperty().bind(splitBox.heightProperty().multiply(y));
     }
 
-
-    
-
-
-
+    private void setTumbler1(Button b, double x, double y){
+        //buttonBase because using toggleButton and button at this method
+        //0,6178010471204188481675392670157
+        b.minHeightProperty().bind(splitBox.heightProperty().divide(20));
+        b.minWidthProperty().bind(splitBox.heightProperty().divide(20));
+        b.maxHeightProperty().bind(splitBox.heightProperty().divide(20));
+        b.maxHeightProperty().bind(splitBox.heightProperty().divide(20));
+        b.layoutXProperty().bind(splitBox.heightProperty().divide(2.5).multiply(x));
+        b.layoutYProperty().bind(splitBox.heightProperty().multiply(y));
+    }
 }

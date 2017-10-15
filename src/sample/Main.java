@@ -38,6 +38,7 @@ public class Main extends Application {
 
         Panel1 panel1 = new Panel1();
         new Panel2();
+        new Panel3();
 
     }
 

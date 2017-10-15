@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 
+<?import javafx.scene.control.Button?>
 <AnchorPane fx:id="commonBox" minHeight="400.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <MenuBar fx:id="Menu" prefHeight="25.0" prefWidth="733.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -45,7 +46,7 @@
                              <Label fx:id="string2Label5" text="раб" />
 
                              <Circle fx:id="redLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
-                             <Circle styleClass="greenLight1" fx:id="greenLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+                             <Circle styleClass="greenLight" fx:id="greenLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
                              <Circle fx:id="yellowLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
                              <Circle fx:id="redLight2" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
                              <Circle fx:id="redLight3" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
@@ -133,16 +134,58 @@
 
                              <ToggleButton fx:id="redButton2" styleClass="redButton" />
 
+                             <Button fx:id="panel1tumblerButton1" styleClass="blackSwitcher" />
+                             <Button fx:id="panel1tumblerButton2"/>
 
-
-
-
+                             <ToggleButton fx:id="panel1tumbler1" />
+                             <ToggleButton fx:id="panel1tumbler2" />
 
                          </children>
 
                      </Pane>
                      <Pane fx:id="py" minHeight="0.0" minWidth="0.0" stylesheets="@style.css">
-                         <Circle styleClass="greenLight" fx:id="greenLight9" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+                         <Label fx:id="panel2Label1" text="ПСТП" />
+                         <Label fx:id="panel2Label2" text="НАРУЖН ВОЗДУХ" />
+                         <Label fx:id="panel2Label3" text="КАБИНА" />
+                         <Label fx:id="panel2Label4" text="КУЗОВ" />
+                         <Label fx:id="panel2Label5" text="ОТКЛ" />
+                         <Label fx:id="panel2Label6" text="ТХМ" />
+                         <Label fx:id="panel2Label7" text="ИЗМЕНЕНИЕ В С" />
+                         <Label fx:id="panel2Label8" text="ЖАЛЮЗИ ДВИГ ОТКР" />
+                         <Label fx:id="panel2Label9" text="РОМ" />
+                         <Label fx:id="panel2Label10" text="ГОМ" />
+                         <Label fx:id="panel2Label11" text="ТХМ" />
+                         <Label fx:id="panel2Label12" text="ЗАКР" />
+                         <Label fx:id="panel2Label13" text="ОТКЛ" />
+                         <Label fx:id="panel2Label14" text="ОТКЛ" />
+                         <Label fx:id="panel2Label15" text="ОТКЛ" />
+                         <Label fx:id="panel2Label16" text="ВКЛЮЧЕНИЕ" />
+                         <Label fx:id="panel2Label17" text="ПУЛЬТА" />
+                         <Label fx:id="panel2Label18" text="ЭЛЕКТРООБОГРЕВ" />
+                         <Label fx:id="panel2Label19" text="ВЕНТИЛЯТОРЫ" />
+                         <Label fx:id="panel2Label20" text="ОТКЛ" />
+                         <Label fx:id="panel2Label21" text="ОТКЛ" />
+                         <Label fx:id="panel2Label22" text="ОТКЛ" />
+                         <Label fx:id="panel2Label23" text="ОТКЛ" />
+                         <Label fx:id="panel2Label24" text="ВКЛ" />
+                         <Label fx:id="panel2Label25" text="КОНТРОЛЬ ЛАМП" />
+
+                         <Circle styleClass="greenLight" fx:id="panel2greenLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+                         <Circle styleClass="greenLight" fx:id="panel2greenLight2" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+                         <Circle styleClass="greenLight" fx:id="panel2greenLight3" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+                         <Circle fx:id="panel2redLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
+
+                         <ToggleButton fx:id="panel2tumbler1" styleClass="Tumbler" />
+                         <ToggleButton fx:id="panel2tumbler2" styleClass="Tumbler" />
+                         <ToggleButton fx:id="panel2tumbler3" styleClass="Tumbler" />
+                         <ToggleButton fx:id="panel2tumbler4" styleClass="Tumbler" />
+                         <ToggleButton fx:id="panel2tumbler5" styleClass="Tumbler" />
+                         <ToggleButton fx:id="panel2tumbler6" styleClass="Tumbler" />
+                         <ToggleButton fx:id="panel2tumbler7" styleClass="Tumbler" />
+                         <ToggleButton fx:id="panel2tumbler8" styleClass="Tumbler" />
+
+
+
                      </Pane>
                  </children>
              </HBox>

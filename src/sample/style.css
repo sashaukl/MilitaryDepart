@@ -114,7 +114,7 @@ Label{
     -fx-rotate: -130deg;
 }
 
-.   blackSwitcher{
+.blackSwitcher{
     -fx-background-image: url("pics/tumbler3.png");
     -fx-background-color: transparent;
     -fx-background-size: 100% 100%;

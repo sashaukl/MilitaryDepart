@@ -94,9 +94,10 @@ Label{
     -fx-background-size: 100% 100%;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
+    -fx-rotate: 180deg;
 }
 .Tumbler:selected, #panel1tumbler1:selected{
-    -fx-rotate: 180deg;
+    -fx-rotate: 0deg;
 }
 
 #panel1tumblerButton2, #panel1tumbler1, #panel1tumbler2{
@@ -107,11 +108,16 @@ Label{
     -fx-background-position: center;
 }
 
+#panel1tumbler1{
+    -fx-rotate: 180deg;
+}
+
+
 #panel1tumbler2{
-    -fx-rotate: -90deg;
+    -fx-rotate: -130deg;
 }
 #panel1tumbler2:selected{
-    -fx-rotate: -130deg;
+    -fx-rotate: -90deg;
 }
 
 .blackSwitcher{

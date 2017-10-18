@@ -37,13 +37,58 @@
                  <children>
                      <Pane fx:id="gap" minHeight="-Infinity" prefWidth="156.0" stylesheets="@style.css">
                          <children>
-                             <Label fx:id="string1Label1" text="ВВОД ИВП 1" />
-                             <Label fx:id="string1Label2" text="ВВОД ИВП 2" />
-                             <Label fx:id="string2Label1" text="неиспр" />
-                             <Label fx:id="string2Label2" text="раб" />
-                             <Label fx:id="string2Label3" text="дм" />
-                             <Label fx:id="string2Label4" text="неиспр" />
-                             <Label fx:id="string2Label5" text="раб" />
+                             <Label fx:id="panel1Label1" text="ВВОД ИВП 1" />
+                             <Label fx:id="panel1Label2" text="ВВОД ИВП 2" />
+                             <Label fx:id="panel1Label3" text="неиспр" />
+                             <Label fx:id="panel1Label4" text="раб" />
+                             <Label fx:id="panel1Label5" text="дм" />
+                             <Label fx:id="panel1Label6" text="неиспр" />
+                             <Label fx:id="panel1Label7" text="раб" />
+                             <Label fx:id="panel1Label8" text="првс1гап" />
+                             <Label fx:id="panel1Label9" text="првс2гап" />
+                             <Label fx:id="panel1Label10" text="люки откр" />
+                             <Label fx:id="panel1Label11" text="зап гап" />
+                             <Label fx:id="panel1Label12" text="стоп гап" />
+                             <Label fx:id="panel1Label13" text="хп" />
+                             <Label fx:id="panel1Label14" text="люки закр" />
+                             <Label fx:id="panel1Label15" text="откр люки" />
+                             <Label fx:id="panel1Label16" text="закр люки" />
+                             <Label fx:id="panel1Label17" text="ивп1" />
+                             <Label fx:id="panel1Label18" text="ивп2" />
+                             <Label fx:id="panel1Label19" text="гап" />
+                             <Label fx:id="panel1Label20" text="гом" />
+                             <Label fx:id="panel1Label21" text="A-B" />
+                             <Label fx:id="panel1Label22" text="B-C" />
+                             <Label fx:id="panel1Label23" text="C-A" />
+                             <Label fx:id="panel1Label24" text="контр напр" />
+                             <Label fx:id="panel1Label25" text="установка напряжения" />
+                             <Label fx:id="panel1Label26" text="контр напр" />
+                             <Label fx:id="panel1Label27" text="гап" />
+                             <Label fx:id="panel1Label28" text="гом" />
+
+                             <Label fx:id="panel1Label29" text="включение нагрузок" />
+
+                             <Label fx:id="panel1Label30" text="пит упр" />
+                             <Label fx:id="panel1Label31" text="гап" />
+                             <Label fx:id="panel1Label32" text="ивп" />
+                             <Label fx:id="panel1Label33" text="гом" />
+                             <Label fx:id="panel1Label34" text="блокировка" />
+                             <Label fx:id="panel1Label35" text="при аол" />
+
+                             <Label fx:id="panel1Label36" text="вкл" />
+                             <Label fx:id="panel1Label37" text="откл" />
+                             <Label fx:id="panel1Label38" text="контр сигн" />
+                             <Label fx:id="panel1Label39" text="ламп" />
+                             <Label fx:id="panel1Label40" text="ПР ВС ОА" />
+                             <Label fx:id="panel1Label41" text="ОТКЛ НАГР" />
+                             <Label fx:id="panel1Label42" text="ЗАПРЕЩЕНО" />
+                             <Label fx:id="panel1Label43" text="вкл" />
+                             <Label fx:id="panel1Label44" text="откл" />
+                             <Label fx:id="panel1Label45" text="откл нагр" />
+
+                             <Label fx:id="panel1Label46" text="гап" />
+                             <Label fx:id="panel1Label47" text="гом" />
+
 
                              <Circle fx:id="redLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
                              <Circle styleClass="greenLight" fx:id="greenLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
@@ -51,16 +96,12 @@
                              <Circle fx:id="redLight2" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
                              <Circle fx:id="redLight3" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
 
-                             <Label fx:id="string3Label1" text="првс1гап" />
+
                              <Circle fx:id="blackLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
-                             <Label fx:id="string4Label1" text="првс2гап" />
+
                              <Circle fx:id="blackLight2" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
 
-                             <Label fx:id="string5Label1" text="люки откр" />
-                             <Label fx:id="string5Label2" text="зап гап" />
-                             <Label fx:id="string5Label3" text="стоп гап" />
-                             <Label fx:id="string5Label4" text="хп" />
-                             <Label fx:id="string5Label5" text="люки закр" />
+
 
                              <Circle fx:id="redLight4" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
                              <Circle fx:id="redLight5" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
@@ -77,49 +118,7 @@
                              <ToggleButton fx:id="redButton1" styleClass="redButton" />
 
 
-                             <Label fx:id="string6Label1" text="откр люки" />
-                             <Label fx:id="string6Label2" text="закр люки" />
 
-                             <Label fx:id="string7Label1" text="ивп1" />
-                             <Label fx:id="string7Label2" text="ивп2" />
-                             <Label fx:id="string7Label3" text="гап" />
-                             <Label fx:id="string7Label4" text="гом" />
-
-                             <Label fx:id="string8Label1" text="A-B" />
-                             <Label fx:id="string8Label2" text="B-C" />
-                             <Label fx:id="string8Label3" text="C-A" />
-
-                             <Label fx:id="string9Label1" text="контр напр" />
-                             <Label fx:id="string9Label2" text="установка напряжения" />
-                             <Label fx:id="string9Label3" text="контр напр" />
-
-                             <Label fx:id="string10Label1" text="гап" />
-                             <Label fx:id="string10Label2" text="гом" />
-
-                             <Label fx:id="string11Label1" text="включение нагрузок" />
-
-                             <Label fx:id="string12Label1" text="пит упр" />
-                             <Label fx:id="string12Label2" text="гап" />
-                             <Label fx:id="string12Label3" text="ивп" />
-                             <Label fx:id="string12Label4" text="гом" />
-                             <Label fx:id="string12Label5" text="блокировка" />
-                             <Label fx:id="string12Label6" text="при аол" />
-
-                             <Label fx:id="string13Label1" text="вкл" />
-                             <Label fx:id="string14Label1" text="откл" />
-                             <Label fx:id="string15Label1" text="контр сигн" />
-                             <Label fx:id="string16Label1" text="ламп" />
-                             <Label fx:id="string17Label1" text="ПР ВС ОА" />
-                             <Label fx:id="string17Label2" text="ОТКЛ НАГР" />
-                             <Label fx:id="string17Label3" text="ЗАПРЕЩЕНО" />
-
-                             <Label fx:id="string18Label1" text="вкл" />
-                             <Label fx:id="string18Label2" text="откл" />
-
-                             <Label fx:id="string19Label1" text="откл нагр" />
-
-                             <Label fx:id="string20Label1" text="гап" />
-                             <Label fx:id="string20Label2" text="гом" />
 
                              <Circle styleClass="greenLight" fx:id="greenLight2" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
                              <Circle styleClass="greenLight" fx:id="greenLight3" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
@@ -203,6 +202,97 @@
                 <Label fx:id="panel3Label9" text="УЗЛ" />
                 <Label fx:id="panel3Label10" text="ВКЛ" />
                 <Label fx:id="panel3Label11" text="НАКАЛ Д20-0М" />
+                <Label fx:id="panel3Label12" text="ПОДСВЕТ" />
+                <Label fx:id="panel3Label13" text="ШКАЛ" />
+                <Label fx:id="panel3Label14" text="БОЛЬШЕ" />
+                <Label fx:id="panel3Label15" text="ОТКЛ" />
+                <Label fx:id="panel3Label16" text="МЕНЬШЕ" />
+                <Label fx:id="panel3Label17" text="НЕИСПР СЕТИ БК 2" />
+                <Label fx:id="panel3Label18" text="КОНТР." />
+                <Label fx:id="panel3Label19" text="220В 400ГЦ" />
+                <Label fx:id="panel3Label20" text="КОНТР. СИГНАЛ." />
+                <Label fx:id="panel3Label21" text="ЛАМП" />
+                <Label fx:id="panel3Label22" text="НАКАЛ" />
+                <Label fx:id="panel3Label23" text="ГОТОВ" />
+                <Label fx:id="panel3Label24" text="ВЫСОКОЕ" />
+                <Label fx:id="panel3Label25" text="-27 кВ" />
+                <Label fx:id="panel3Label26" text="НЕИСПР. СЕТИ БК 1" />
+                <Label fx:id="panel3Label27" text = "ВЫСОКОЕ" />
+                <Label fx:id="panel3Label28" text = "МЕНЬШЕ" />
+                <Label fx:id="panel3Label29" text = "ВХОДН. МОЩН." />
+                <Label fx:id="panel3Label30" text = "БОЛЬШЕ" />
+                <Label fx:id="panel3Label31" text = "СУЛ" />
+                <Label fx:id="panel3Label32" text = "ВКЛ." />
+                <Label fx:id="panel3Label33" text = "ОТКЛ." />
+                <Label fx:id="panel3Label34" text = "АНТЕННА" />
+                <Label fx:id="panel3Label35" text = "ЭКВИВАЛЕНТ" />
+                <Label fx:id="panel3Label36" text = "ОБЛУЧ. БРБ" />
+                <Label fx:id="panel3Label37" text = "ОБЛЮЧ. БРА" />
+                <Label fx:id="panel3Label38" text = "НЕИСПРАВН." />
+                <Label fx:id="panel3Label39" text = "Д94-6(Д50)" />
+                <Label fx:id="panel3Label40" text = "НЕИСПРАВН." />
+                <Label fx:id="panel3Label41" text = "Д00-10" />
+                <Label fx:id="panel3Label42" text = "СУА" />
+                <Label fx:id="panel3Label43" text = "ПОВТОРН." />
+                <Label fx:id="panel3Label44" text = "ВКЛ" />
+                <Label fx:id="panel3Label45" text = "СУЛ" />
+                <Label fx:id="panel3Label46" text = "ЗАСТОПР" />
+                <Label fx:id="panel3Label47" text = "ЗАСТОПР" />
+                <Label fx:id="panel3Label48" text = "Ep ЛЕВ." />
+                <Label fx:id="panel3Label49" text = "Ep ЛЕВ." />
+                <Label fx:id="panel3Label50" text = "Ep ПРАВ." />
+                <Label fx:id="panel3Label51" text = "Ep ЛЕВ." />
+                <Label fx:id="panel3Label52" text = "Ep ПРАВ." />
+                <Label fx:id="panel3Label53" text = "АНОД Д60-1М" />
+                <Label fx:id="panel3Label54" text = "220В 400 Гц" />
+                <Label fx:id="panel3Label55" text = "ЛЮКИ ОТКР" />
+                <Label fx:id="panel3Label56" text = "ОБЩ" />
+                <Label fx:id="panel3Label57" text = "НЕИСПР. ВЕНТИЛ." />
+                <Label fx:id="panel3Label58" text = "ПРИВОД" />
+                <Label fx:id="panel3Label59" text = "ЭМУ В" />
+                <Label fx:id="panel3Label60" text = "ЭМУ В" />
+                <Label fx:id="panel3Label61" text = "ВКЛ" />
+                <Label fx:id="panel3Label62" text = "ОТКЛ" />
+                <Label fx:id="panel3Label63" text = "ВКЛ" />
+                <Label fx:id="panel3Label64" text = "ОТКЛ" />
+                <Label fx:id="panel3Label65" text = "СНЯТИЕ БЛОКИРОВКИ Д02-7М" />
+                <Label fx:id="panel3Label66" text = "БЛОКИР. ЗАЩИТЫ" />
+                <Label fx:id="panel3Label67" text = "ОТКЛ" />
+                <Label fx:id="panel3Label68" text = "КОНТРЛЬ" />
+                <Label fx:id="panel3Label69" text = "Д-52М" />
+                <Label fx:id="panel3Label70" text = "ПОХОДНОЕ" />
+                <Label fx:id="panel3Label71" text = "СТОПОРЕНИЕ" />
+                <Label fx:id="panel3Label72" text = "РАССТОПОРЕНИЕ" />
+                <Label fx:id="panel3Label73" text = "СВЕРТ." />
+                <Label fx:id="panel3Label74" text = "АНТ. СТС" />
+                <Label fx:id="panel3Label75" text = "ЗАСТОПОРЕНО" />
+                <Label fx:id="panel3Label76" text = "Д25-М" />
+                <Label fx:id="panel3Label77" text = "ВКЛ" />
+                <Label fx:id="panel3Label78" text = "ОТКЛ" />
+                <Label fx:id="panel3Label79" text = "РАЗВЕРТ" />
+                <Label fx:id="panel3Label80" text = "СВЕРТ" />
+                <Label fx:id="panel3Label81" text = "СТОП" />
+                <Label fx:id="panel3Label82" text = "РАЗВЕРНУТО" />
+                <Label fx:id="panel3Label83" text = "АППАРАТУРА" />
+                <Label fx:id="panel3Label84" text = "ВКЛ." />
+                <Label fx:id="panel3Label85" text = "ОТКЛ." />
+                <Label fx:id="panel3Label86" text = "ЭЛ.ПЕЧЬ" />
+                <Label fx:id="panel3Label87" text = "ЛЮКИ ОТКР." />
+                <Label fx:id="panel3Label88" text = "МЕСН." />
+                <Label fx:id="panel3Label89" text = "ОСВЕЩ. ШКАФА." />
+                <Label fx:id="panel3Label90" text = "ОТКЛ." />
+                <Label fx:id="panel3Label91" text = "ЗАКР" />
+                <Label fx:id="panel3Label92" text = "ОТКЛ." />
+
+
+
+
+
+
+
+
+
+
 
             </Pane>
          </items>

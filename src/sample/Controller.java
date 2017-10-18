@@ -6,6 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.SplitPane;
+import javafx.scene.effect.Light;
+import javafx.scene.effect.Lighting;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -19,9 +21,20 @@ public class Controller{
     protected Pane panel3;
     protected MenuBar menu;
 
+    Lighting lighting = new Lighting();
+
+
     //Controller() {}
 
     Controller (){
+
+        Light.Distant light = new Light.Distant();
+        light.setAzimuth(-135.0);
+        // Create lighting effect
+        lighting.setLight(light);
+        lighting.setSurfaceScale(4.0);
+
+
         this.primaryStage = Main.primaryStage;
         this.root = Main.root;
 

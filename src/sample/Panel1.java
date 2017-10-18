@@ -8,14 +8,18 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBase;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.effect.Light;
 import javafx.scene.effect.Lighting;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 import java.beans.EventHandler;
+import java.util.ArrayList;
 
 
 public class Panel1 extends Controller{
 
+    private ArrayList<Circle> redLights = new ArrayList<>();
     private Circle redLight1;
     private Circle redLight2;
     private Circle redLight3;
@@ -26,20 +30,15 @@ public class Panel1 extends Controller{
 
     //yellowLight
     private Circle yellowLight1;
-    //greenLightsT
-    //panel1
-    private Circle greenLight1;
-    private Circle greenLight2;
-    private Circle greenLight3;
-    private Circle greenLight4;
-    private Circle greenLight5;
-    private Circle greenLight6;
-    private Circle greenLight7;
-    private Circle greenLight8;
+    //greenLights
+    private ArrayList<Circle> greenLights = new ArrayList<>();
     //blackLight
-    private Circle blackLight1;
-    private Circle blackLight2;
+    private ArrayList<Circle> blackLights = new ArrayList<>();
+    //All lights
+    private ArrayList<Circle> allLights = new ArrayList<>();
     //strings
+    private ArrayList<Label> labels = new ArrayList<>();
+    /*
     private Label string1Label1;
     private Label string1Label2;
     private Label string2Label1;
@@ -87,6 +86,7 @@ public class Panel1 extends Controller{
     private Label string19Label1;
     private Label string20Label1;
     private Label string20Label2;
+    */
 
     //gray buttons
     private ToggleButton grayButton1;
@@ -105,7 +105,7 @@ public class Panel1 extends Controller{
     private Button tumblerButton2;
 
     private ToggleButton tumbler1;
-    private ToggleButton tumbler2;
+    private ToggleButton tumbler2;  //lights check
 
     private DoubleProperty fontSize = new SimpleDoubleProperty(11);
 
@@ -118,6 +118,10 @@ public class Panel1 extends Controller{
 
     private void init(){
         //labels
+        for (int i= 1; i<=47; i++){
+            labels.add((Label) root.lookup("#panel1Label" + i));
+        }
+        /*
         string1Label1 = (Label) super.root.lookup("#string1Label1");
         string1Label2 = (Label) root.lookup("#string1Label2");
         string2Label1 = (Label) root.lookup("#string2Label1");
@@ -165,29 +169,22 @@ public class Panel1 extends Controller{
         string19Label1 = (Label) root.lookup("#string19Label1");
         string20Label1 = (Label) root.lookup("#string20Label1");
         string20Label2 = (Label) root.lookup("#string20Label2");
+        */
         //lights
         //red
-        redLight1 = (Circle) root.lookup("#redLight1");
-        redLight2 = (Circle) root.lookup("#redLight2");
-        redLight3 = (Circle) root.lookup("#redLight3");
-        redLight4 = (Circle) root.lookup("#redLight4");
-        redLight5 = (Circle) root.lookup("#redLight5");
-        redLight6 = (Circle) root.lookup("#redLight6");
-        redLight7 = (Circle) root.lookup("#redLight7");
+        for (int i=1; i<=7;i++){
+            redLights.add((Circle) root.lookup("#redLight" + i));
+        }
         //green
-        greenLight1 = (Circle) root.lookup("#greenLight1");
-        greenLight2 = (Circle) root.lookup("#greenLight2");
-        greenLight3 = (Circle) root.lookup("#greenLight3");
-        greenLight4 = (Circle) root.lookup("#greenLight4");
-        greenLight5 = (Circle) root.lookup("#greenLight5");
-        greenLight6 = (Circle) root.lookup("#greenLight6");
-        greenLight7 = (Circle) root.lookup("#greenLight7");
-        greenLight8 = (Circle) root.lookup("#greenLight8");
+        for (int i=1; i<=8;i++){
+            greenLights.add((Circle) root.lookup("#greenLight" + i));
+        }
         //others
-        blackLight1 = (Circle) root.lookup("#blackLight1");
-        blackLight2 = (Circle) root.lookup("#blackLight2");
-        yellowLight1 = (Circle) root.lookup("#yellowLight1");
+        for (int i=1; i<=2;i++){
+            blackLights.add((Circle) root.lookup("#blackLight" + i));
+        }
 
+        yellowLight1 = (Circle) root.lookup("#yellowLight1");
         //buttons
         //gray
         grayButton1 = (ToggleButton) root.lookup("#grayButton1");
@@ -210,6 +207,11 @@ public class Panel1 extends Controller{
         tumblerButton1 = (Button) root.lookup("#panel1tumblerButton1");
         tumblerButton2 = (Button) root.lookup("#panel1tumblerButton2");
 
+
+        allLights.addAll(greenLights);
+        allLights.addAll(redLights);
+        allLights.addAll(blackLights);
+        allLights.add(yellowLight1);
     }
 
     private void setPosition(){
@@ -217,76 +219,75 @@ public class Panel1 extends Controller{
 
         //fill first container
         //labels
-        setLabel(string1Label1, 0.15, 0.017 );
-        setLabel(string1Label2, 0.65, 0.017);
-        setLabel(string2Label1, 0.1, 0.035);
-        setLabel(string2Label2, 0.3, 0.035 );
-        setLabel(string2Label3, 0.48, 0.035 );
-        setLabel(string2Label4, 0.64, 0.035 );
-        setLabel(string2Label5, 0.8, 0.035 );
-        setLabel(string3Label1, 0.425, 0.108 );
-        setLabel(string4Label1, 0.425, 0.19 );
-        setLabel(string5Label1, 0.06, 0.2675 );
-        setLabel(string5Label2, 0.2675, 0.2675 );
-        setLabel(string5Label3, 0.43, 0.2675 );
-        setLabel(string5Label4, 0.65, 0.2675 );
-        setLabel(string5Label5, 0.76, 0.2675 );
-        setLabel(string6Label1, 0.067, 0.339 );
-        setLabel(string6Label2, 0.77, 0.339);
-        setLabel(string7Label1, 0.095, 0.42);
-        setLabel(string7Label2, 0.28, 0.42);
-        setLabel(string7Label3, 0.1, 0.445);
-        setLabel(string7Label4, 0.31, 0.445);
-        setLabel(string8Label1, 0.69, 0.425, panel1.heightProperty().divide(95));
-        setLabel(string8Label2, 0.76, 0.412, panel1.heightProperty().divide(95));
-        setLabel(string8Label3, 0.82, 0.425, panel1.heightProperty().divide(95));
-        setLabel(string9Label1, 0.1, 0.48);
-        setLabel(string9Label2, 0.35, 0.459, panel1.heightProperty().divide(70) );
-        setLabel(string9Label3, 0.68, 0.47);
-        setLabel(string10Label1, 0.4, 0.471, panel1.heightProperty().divide(65));
-        setLabel(string10Label2, 0.55, 0.471, panel1.heightProperty().divide(65));
-        setLabel(string11Label1, 0.36, 0.519, panel1.heightProperty().divide(75));
-        setLabel(string12Label1, 0.2, 0.568, panel1.heightProperty().divide(67));
-        setLabel(string12Label2, 0.35, 0.568, panel1.heightProperty().divide(67));
-        setLabel(string12Label3, 0.47, 0.568, panel1.heightProperty().divide(67));
-        setLabel(string12Label4, 0.59, 0.568, panel1.heightProperty().divide(67));
-        setLabel(string12Label5, 0.67, 0.568, panel1.heightProperty().divide(67));
-        setLabel(string12Label6, 0.7, 0.58, panel1.heightProperty().divide(67));
-        setLabel(string13Label1, 0.23, 0.59, panel1.heightProperty().divide(70));
-        setLabel(string14Label1, 0.23, 0.645 , panel1.heightProperty().divide(70));
-        setLabel(string15Label1, 0.23, 0.655);
-        setLabel(string16Label1, 0.26, 0.668 );
-        setLabel(string17Label1, 0.379, 0.677, panel1.heightProperty().divide(90) );
-        setLabel(string17Label2, 0.5, 0.667, panel1.heightProperty().divide(90) );
-        setLabel(string17Label3, 0.5, 0.677, panel1.heightProperty().divide(90) );
-        setLabel(string18Label1, 0.182 ,0.705 , panel1.heightProperty().divide(75));
-        setLabel(string18Label2, 0.188 ,0.728, panel1.heightProperty().divide(90));
-        setLabel(string19Label1, 0.4311, 0.729,  panel1.heightProperty().divide(70));
-        setLabel(string20Label1, 0.283, 0.79);
-        setLabel(string20Label2, 0.66, 0.79);
-
+        setLabel(labels.get(0), 0.15, 0.017 );
+        setLabel(labels.get(1), 0.65, 0.017);
+        setLabel(labels.get(2), 0.1, 0.035);
+        setLabel(labels.get(3), 0.3, 0.035 );
+        setLabel(labels.get(4), 0.48, 0.035 );
+        setLabel(labels.get(5), 0.64, 0.035 );
+        setLabel(labels.get(6), 0.8, 0.035 );
+        setLabel(labels.get(7), 0.425, 0.108 );
+        setLabel(labels.get(8), 0.425, 0.19 );
+        setLabel(labels.get(9), 0.06, 0.2675 );
+        setLabel(labels.get(10), 0.2675, 0.2675 );
+        setLabel(labels.get(11), 0.43, 0.2675 );
+        setLabel(labels.get(12), 0.65, 0.2675 );
+        setLabel(labels.get(13), 0.76, 0.2675 );
+        setLabel(labels.get(14), 0.067, 0.339 );
+        setLabel(labels.get(15), 0.77, 0.339);
+        setLabel(labels.get(16), 0.095, 0.42);
+        setLabel(labels.get(17), 0.28, 0.42);
+        setLabel(labels.get(18), 0.1, 0.445);
+        setLabel(labels.get(19), 0.31, 0.445);
+        setLabel(labels.get(20), 0.69, 0.425, panel1.heightProperty().divide(95));
+        setLabel(labels.get(21), 0.76, 0.412, panel1.heightProperty().divide(95));
+        setLabel(labels.get(22), 0.82, 0.425, panel1.heightProperty().divide(95));
+        setLabel(labels.get(23), 0.1, 0.48);
+        setLabel(labels.get(24), 0.35, 0.459, panel1.heightProperty().divide(70) );
+        setLabel(labels.get(25), 0.68, 0.47);
+        setLabel(labels.get(26), 0.4, 0.471, panel1.heightProperty().divide(65));
+        setLabel(labels.get(27), 0.55, 0.471, panel1.heightProperty().divide(65));
+        setLabel(labels.get(28), 0.36, 0.519, panel1.heightProperty().divide(75));
+        setLabel(labels.get(29), 0.2, 0.568, panel1.heightProperty().divide(67));
+        setLabel(labels.get(30), 0.35, 0.568, panel1.heightProperty().divide(67));
+        setLabel(labels.get(31), 0.47, 0.568, panel1.heightProperty().divide(67));
+        setLabel(labels.get(32), 0.59, 0.568, panel1.heightProperty().divide(67));
+        setLabel(labels.get(33), 0.67, 0.568, panel1.heightProperty().divide(67));
+        setLabel(labels.get(34), 0.7, 0.58, panel1.heightProperty().divide(67));
+        setLabel(labels.get(35), 0.23, 0.59, panel1.heightProperty().divide(70));
+        setLabel(labels.get(36), 0.23, 0.645 , panel1.heightProperty().divide(70));
+        setLabel(labels.get(37), 0.23, 0.655);
+        setLabel(labels.get(38), 0.26, 0.668 );
+        setLabel(labels.get(39), 0.379, 0.677, panel1.heightProperty().divide(90) );
+        setLabel(labels.get(40), 0.5, 0.667, panel1.heightProperty().divide(90) );
+        setLabel(labels.get(41), 0.5, 0.677, panel1.heightProperty().divide(90) );
+        setLabel(labels.get(42), 0.182 ,0.705 , panel1.heightProperty().divide(75));
+        setLabel(labels.get(43), 0.188 ,0.728, panel1.heightProperty().divide(90));
+        setLabel(labels.get(44), 0.4311, 0.729,  panel1.heightProperty().divide(70));
+        setLabel(labels.get(45), 0.283, 0.79);
+        setLabel(labels.get(46), 0.66, 0.79);
         //lights
         //red
-        setLight(redLight1, 0.16, 0.078);
-        setLight(redLight2, 0.69, 0.078);
-        setLight(redLight3, 0.835, 0.078);
-        setLight(redLight4,0.16 ,0.315);
-        setLight(redLight5,0.84 ,0.315);
-        setLight(redLight6, 0.425, 0.71);
-        setLight(redLight7, 0.57, 0.71);
+        setLight(redLights.get(0), 0.16, 0.078);
+        setLight(redLights.get(1), 0.69, 0.078);
+        setLight(redLights.get(2), 0.835, 0.078);
+        setLight(redLights.get(3),0.16 ,0.315);
+        setLight(redLights.get(4),0.84 ,0.315);
+        setLight(redLights.get(5), 0.425, 0.71);
+        setLight(redLights.get(6), 0.57, 0.71);
         //green
-        setLight(greenLight1, 0.33, 0.078);
-        setLight(greenLight2, 0.325, 0.4);
-        setLight(greenLight3, 0.67, 0.4);
-        setLight(greenLight4, 0.255, 0.552);
-        setLight(greenLight5, 0.378, 0.552);
-        setLight(greenLight6, 0.5, 0.552);
-        setLight(greenLight7, 0.62, 0.552);
-        setLight(greenLight8, 0.745, 0.552);
+        setLight(greenLights.get(0), 0.33, 0.078);
+        setLight(greenLights.get(1), 0.325, 0.4);
+        setLight(greenLights.get(2), 0.67, 0.4);
+        setLight(greenLights.get(3), 0.255, 0.552);
+        setLight(greenLights.get(4), 0.378, 0.552);
+        setLight(greenLights.get(5), 0.5, 0.552);
+        setLight(greenLights.get(6), 0.62, 0.552);
+        setLight(greenLights.get(7), 0.745, 0.552);
 
         setLight(yellowLight1, 0.5, 0.078);
-        setLight(blackLight1, 0.5, 0.148);
-        setLight(blackLight2, 0.5, 0.23);
+        setLight(blackLights.get(0), 0.5, 0.148);
+        setLight(blackLights.get(1), 0.5, 0.23);
 
         //buttons
         setButton(grayButton1, 0.282, 0.29 );
@@ -304,9 +305,18 @@ public class Panel1 extends Controller{
         setTumbler(tumblerButton2, 0.745, 0.435);
         setTumbler1(tumblerButton1, 0.185, 0.435);
 
-
-
         //events
+
+        tumbler2.setOnMouseClicked( ev ->{
+           if (tumbler2.isSelected()){
+               lightsCheck();
+           }
+           else {
+               lightsUncheck();
+           }
+        });
+
+
         tumblerButton1.setOnMouseClicked( event -> {
             switch ((int) tumblerButton1.getRotate()){
                 case 0:
@@ -339,6 +349,25 @@ public class Panel1 extends Controller{
             }
         });
 
+    }
+
+    private void lightsCheck(){
+
+
+        allLights.forEach(e -> e.setEffect(lighting));
+        redLights.forEach(l -> l.setFill(Color.rgb(255, 0,0 )));
+        greenLights.forEach(l -> l.setFill((Color.rgb(50,255,50 ))));
+        blackLights.forEach(l -> l.setFill((Color.rgb(250,250,250 ))));
+        yellowLight1.setFill(Color.rgb(233,255, 125));
+
+    }
+
+    private void lightsUncheck(){
+        allLights.forEach(e -> e.setEffect(new Lighting()));
+        redLights.forEach(l -> l.getStyleClass().add("redLight"));
+        greenLights.forEach(l -> l.getStyleClass().add("greenLight"));
+        blackLights.forEach(l -> l.getStyleClass().add("blackLight"));
+        yellowLight1.getStyleClass().add("#yellowLight1");
     }
 
     private void setButton(ToggleButton tb, double x, double y){

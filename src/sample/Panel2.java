@@ -7,9 +7,14 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.effect.Effect;
+import javafx.scene.effect.Light;
 import javafx.scene.effect.Lighting;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.SVGPath;
+
+import java.util.ArrayList;
 
 public class Panel2 extends Controller{
     //labels
@@ -40,10 +45,10 @@ public class Panel2 extends Controller{
     private Label label25;
 
 
+    private ArrayList<Circle> greenLights = new ArrayList<>();
     private Circle greenLight1;
     private Circle greenLight2;
     private Circle greenLight3;
-
     private  Circle redLight1;
 
     private ToggleButton tumbler1;
@@ -93,9 +98,15 @@ public class Panel2 extends Controller{
         label23 = (Label) root.lookup("#panel2Label23");
         label24 = (Label) root.lookup("#panel2Label24");
         label25 = (Label) root.lookup("#panel2Label25");
-        greenLight1 = (Circle) root.lookup("#panel2greenLight1");
-        greenLight2 = (Circle) root.lookup("#panel2greenLight2");
-        greenLight3 = (Circle) root.lookup("#panel2greenLight3");
+
+        for (int i=1; i<4;i++){
+            String str = "#panel2greenLight" + i;
+            greenLights.add((Circle) root.lookup(str));
+        }
+        //greenLight1 = (Circle) root.lookup("#panel2greenLight1");
+        //greenLight2 = (Circle) root.lookup("#panel2greenLight2");
+        //greenLight3 = (Circle) root.lookup("#panel2greenLight3");
+        //greenLight3 = greenLights.get(2);
         redLight1 = (Circle) root.lookup ("#panel2redLight1");
         tumbler1 = (ToggleButton) root.lookup("#panel2tumbler1");
         tumbler2 = (ToggleButton) root.lookup("#panel2tumbler2");
@@ -128,19 +139,23 @@ public class Panel2 extends Controller{
         setLabel(label13,0.365, 0.362,  panel2.heightProperty().divide(88));
         setLabel(label14,0.55, 0.362,  panel2.heightProperty().divide(88));
         setLabel(label15,0.735, 0.362,  panel2.heightProperty().divide(88));
-        setLabel(label16,0.15, 0.38,  panel2.heightProperty().divide(88));
-        setLabel(label17,0.17, 0.39,  panel2.heightProperty().divide(88));
-        setLabel(label18,0.36, 0.38,  panel2.heightProperty().divide(88));
-        setLabel(label19,0.65, 0.38,  panel2.heightProperty().divide(88));
+        setLabel(label16,0.15, 0.39,  panel2.heightProperty().divide(88));
+        setLabel(label17,0.17, 0.40,  panel2.heightProperty().divide(88));
+        setLabel(label18,0.36, 0.39,  panel2.heightProperty().divide(88));
+        setLabel(label19,0.65, 0.39,  panel2.heightProperty().divide(88));
         setLabel(label20,0.19, 0.47,  panel2.heightProperty().divide(88));
         setLabel(label21,0.37, 0.47,  panel2.heightProperty().divide(88));
         setLabel(label22,0.55, 0.47,  panel2.heightProperty().divide(88));
         setLabel(label23,0.77, 0.486,  panel2.heightProperty().divide(88));
         setLabel(label24,0.86, 0.495,  panel2.heightProperty().divide(88));
         setLabel(label25,0.68, 0.555,  panel2.heightProperty().divide(88));
-        setLight(greenLight1, 0.41, 0.26);
-        setLight(greenLight2, 0.72, 0.26);
-        setLight(greenLight3, 0.84, 0.26);
+
+        setLight(greenLights.get(0), 0.41, 0.26);
+        setLight(greenLights.get(1), 0.72, 0.26);
+        setLight(greenLights.get(2), 0.84, 0.26);
+        //setLight(greenLight1, 0.41, 0.26);
+        //setLight(greenLight2, 0.72, 0.26);
+        //setLight(greenLight3, 0.84, 0.26);
         setLight(redLight1, 0.59, 0.26);
 
 
@@ -162,6 +177,9 @@ public class Panel2 extends Controller{
                     tumblerButton1.setRotate(0);
                     break;
                 case 0:
+                    tumblerButton1.setRotate(52);
+                    break;
+                case 52:
                     tumblerButton1.setRotate(90);
                     break;
                 case 90:
@@ -177,16 +195,31 @@ public class Panel2 extends Controller{
             switch ((int) tumblerButton2.getRotate()){
                 case 52:
                     tumblerButton2.setRotate(100);
+                    lightsCheck();
                     break;
                 case 100:
-                    tumblerButton2.setRotate(232);
-                    break;
-                case 232:
                     tumblerButton2.setRotate(52);
+                    lightsUnchek();
                     break;
             }
         });
     }
+
+
+    private void lightsCheck(){
+        redLight1.setFill(Color.rgb(255, 0,0 ));
+        greenLights.forEach(l -> l.setFill((Color.rgb(50,255,50 ))));
+        redLight1.setEffect(lighting);
+        greenLights.forEach(l -> l.setEffect(lighting));
+    }
+
+    private void lightsUnchek(){
+        redLight1.getStyleClass().add("redLight");
+        redLight1.setEffect(new Lighting());
+        greenLights.forEach(l -> l.setEffect(new Lighting()));
+        greenLights.forEach(l -> l.getStyleClass().add("greenLight"));
+    }
+
 
     private void setLight(Circle circle, double x, double y){
         circle.layoutYProperty().bind(panel2.heightProperty().multiply(y));

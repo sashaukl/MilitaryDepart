@@ -1,15 +1,20 @@
 package sample;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.SplitPane;
+import javafx.scene.effect.Bloom;
 import javafx.scene.effect.Light;
 import javafx.scene.effect.Lighting;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 public class Controller{
@@ -23,17 +28,14 @@ public class Controller{
 
     Lighting lighting = new Lighting();
 
-
     //Controller() {}
 
     Controller (){
-
         Light.Distant light = new Light.Distant();
         light.setAzimuth(-135.0);
         // Create lighting effect
         lighting.setLight(light);
         lighting.setSurfaceScale(4.0);
-
 
         this.primaryStage = Main.primaryStage;
         this.root = Main.root;
@@ -55,6 +57,31 @@ public class Controller{
         panel2.maxWidthProperty().bind(splitBox.heightProperty().divide(2.5));
         panel3.maxWidthProperty().bind(splitBox.heightProperty().divide(0.75));
 
+    }
+    public void lightOn(Circle c){
 
+        switch (c.getStyleClass().toString()) {
+            case "greenLight":
+                c.setFill(Color.rgb(50,255,50 ));
+                break;
+            case "yellowLight":
+                c.setFill(Color.rgb(233,255, 125));
+                break;
+            case "redLight":
+                c.setFill(Color.rgb(255, 0,0 ));
+                break;
+            case "blackLight":
+                c.setFill(Color.rgb(250,250,250 ));
+                break;
+        }
+        //c.setEffect(new Lighting());
+        c.setEffect(new Bloom());
+    }
+
+    public void lightOff(Circle c){
+        String cl = c.getStyleClass().toString();
+        c.getStyleClass().clear();
+        c.getStyleClass().add(cl);
+        c.setEffect(lighting);
     }
 }

@@ -4,6 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BigPanel">
    <children>
@@ -11,7 +12,10 @@
          <items>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Pane fx:id="gap" prefHeight="100.0" prefWidth="100.0" />
+                  <Pane fx:id="gap" prefHeight="100.0" prefWidth="100.0">
+                     <children>
+
+                     </children></Pane>
                   <Pane fx:id="py" />
                </children>
             </HBox>

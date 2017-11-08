@@ -5,107 +5,47 @@ import javafx.beans.binding.DoubleBinding;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBase;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.effect.InnerShadow;
 import javafx.scene.effect.Lighting;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
+import javafx.scene.transform.Rotate;
+
+import java.util.ArrayList;
 
 public class Panel3 extends Controller{
     private DoubleProperty fontSize = new SimpleDoubleProperty(6.1);
-    private Label panel3Label1;
-    private Label panel3Label2;
-    private Label panel3Label3;
-    private Label panel3Label4;
-    private Label panel3Label5;
-    private Label panel3Label6;
-    private Label panel3Label7;
-    private Label panel3Label8;
-    private Label panel3Label9;
-    private Label panel3Label10;
-    private Label panel3Label11;
-    private Label panel3Label12;
-    private Label panel3Label13;
-    private Label panel3Label14;
-    private Label panel3Label15;
-    private Label panel3Label16;
-    private Label panel3Label17;
-    private Label panel3Label18;
-    private Label panel3Label19;
-    private Label panel3Label20;
-    private Label panel3Label21;
-    private Label panel3Label22;
-    private Label panel3Label23;
-    private Label panel3Label24;
-    private Label panel3Label25;
-    private Label panel3Label26;
-    private Label panel3Label27;
-    private Label panel3Label28;
-    private Label panel3Label29;
-    private Label panel3Label30;
-    private Label panel3Label31;
-    private Label panel3Label32;
-    private Label panel3Label33;
-    private Label panel3Label34;
-    private Label panel3Label35;
-    private Label panel3Label36;
-    private Label panel3Label37;
-    private Label panel3Label38;
-    private Label panel3Label39;
-    private Label panel3Label40;
-    private Label panel3Label41;
-    private Label panel3Label42;
-    private Label panel3Label43;
-    private Label panel3Label44;
-    private Label panel3Label45;
-    private Label panel3Label46;
-    private Label panel3Label47;
-    private Label panel3Label48;
-    private Label panel3Label49;
-    private Label panel3Label50;
-    private Label panel3Label51;
-    private Label panel3Label52;
-    private Label panel3Label53;
-    private Label panel3Label54;
-    private Label panel3Label55;
-    private Label panel3Label56;
-    private Label panel3Label57;
-    private Label panel3Label58;
-    private Label panel3Label59;
-    private Label panel3Label60;
-    private Label panel3Label61;
-    private Label panel3Label62;
-    private Label panel3Label63;
-    private Label panel3Label64;
-    private Label panel3Label65;
-    private Label panel3Label66;
-    private Label panel3Label67;
-    private Label panel3Label68;
-    private Label panel3Label69;
-    private Label panel3Label70;
-    private Label panel3Label71;
-    private Label panel3Label72;
-    private Label panel3Label73;
-    private Label panel3Label74;
-    private Label panel3Label75;
-    private Label panel3Label76;
-    private Label panel3Label77;
-    private Label panel3Label78;
-    private Label panel3Label79;
-    private Label panel3Label80;
-    private Label panel3Label81;
-    private Label panel3Label82;
-    private Label panel3Label83;
-    private Label panel3Label84;
-    private Label panel3Label85;
-    private Label panel3Label86;
-    private Label panel3Label87;
-    private Label panel3Label88;
-    private Label panel3Label89;
-    private Label panel3Label90;
-    private Label panel3Label91;
-    private Label panel3Label92;
+    private ArrayList<Label> labels = new ArrayList<>();
 
+    private ArrayList<Circle> redLights =  new ArrayList<>();
+    private ArrayList<Circle> blackLights =  new ArrayList<>();
+    private ArrayList<Circle> greenLights = new ArrayList<>();
+    private ArrayList<ToggleButton> blackButtons = new ArrayList<>();
+    private ArrayList<Button> switchers = new ArrayList<>();
+    private Line line1;
+    private Rotate line1Rotation;
 
+    public Rotate getLine3Rotation(){
+        return line1Rotation;
+    }
+
+    public Line getLine1() {
+        return line1;
+    }
+
+    public Circle yellowLight;
+    public ArrayList<ToggleButton> getBlackButtons() {
+        return blackButtons;
+    }
+    public ArrayList<Circle> getRedLights() {
+        return redLights;
+    }
+    public Circle getYellowLight(){
+        return yellowLight;
+    }
     Panel3(){
         init();
         setPosition();
@@ -113,199 +53,198 @@ public class Panel3 extends Controller{
 
     private void init(){
         fontSize.bind(panel2.heightProperty().divide(88));
-        panel3Label1 = (Label) root.lookup("#panel3Label1");
-        panel3Label2 = (Label) root.lookup("#panel3Label2");
-        panel3Label3 = (Label) root.lookup("#panel3Label3");
-        panel3Label4 = (Label) root.lookup("#panel3Label4");
-        panel3Label5 = (Label) root.lookup("#panel3Label5");
-        panel3Label6 = (Label) root.lookup("#panel3Label6");
-        panel3Label7 = (Label) root.lookup("#panel3Label7");
-        panel3Label8 = (Label) root.lookup("#panel3Label8");
-        panel3Label9 = (Label) root.lookup("#panel3Label9");
-        panel3Label10 = (Label) root.lookup("#panel3Label10");
-        panel3Label11 = (Label) root.lookup("#panel3Label11");
-        panel3Label12 = (Label) root.lookup("#panel3Label12");
-        panel3Label13 = (Label) root.lookup("#panel3Label13");
-        panel3Label14 = (Label) root.lookup("#panel3Label14");
-        panel3Label15 = (Label) root.lookup("#panel3Label15");
-        panel3Label16 = (Label) root.lookup("#panel3Label16");
-        panel3Label17 = (Label) root.lookup("#panel3Label17");
-        panel3Label18 = (Label) root.lookup("#panel3Label18");
-        panel3Label19 = (Label) root.lookup("#panel3Label19");
-        panel3Label20 = (Label) root.lookup("#panel3Label20");
-        panel3Label21 = (Label) root.lookup("#panel3Label21");
-        panel3Label22 = (Label) root.lookup("#panel3Label22");
-        panel3Label23 = (Label) root.lookup("#panel3Label23");
-        panel3Label24 = (Label) root.lookup("#panel3Label24");
-        panel3Label25 = (Label) root.lookup("#panel3Label25");
-        panel3Label26 = (Label) root.lookup("#panel3Label26");
-        panel3Label27 = (Label) root.lookup("#panel3Label27");
-        panel3Label28 = (Label) root.lookup("#panel3Label28");
-        panel3Label29 = (Label) root.lookup("#panel3Label29");
-        panel3Label30 = (Label) root.lookup("#panel3Label30");
-        panel3Label31 = (Label) root.lookup("#panel3Label31");
-        panel3Label32 = (Label) root.lookup("#panel3Label32");
-        panel3Label33 = (Label) root.lookup("#panel3Label33");
-        panel3Label34 = (Label) root.lookup("#panel3Label34");
-        panel3Label35 = (Label) root.lookup("#panel3Label35");
-        panel3Label36 = (Label) root.lookup("#panel3Label36");
-        panel3Label37 = (Label) root.lookup("#panel3Label37");
-        panel3Label38 = (Label) root.lookup("#panel3Label38");
-        panel3Label39 = (Label) root.lookup("#panel3Label39");
-        panel3Label40 = (Label) root.lookup("#panel3Label40");
-        panel3Label41 = (Label) root.lookup("#panel3Label41");
-        panel3Label42 = (Label) root.lookup("#panel3Label42");
-        panel3Label43 = (Label) root.lookup("#panel3Label43");
-        panel3Label44 = (Label) root.lookup("#panel3Label44");
-        panel3Label45 = (Label) root.lookup("#panel3Label45");
-        panel3Label46 = (Label) root.lookup("#panel3Label46");
-        panel3Label47 = (Label) root.lookup("#panel3Label47");
-        panel3Label48 = (Label) root.lookup("#panel3Label48");
-        panel3Label49 = (Label) root.lookup("#panel3Label49");
-        panel3Label50 = (Label) root.lookup("#panel3Label50");
-        panel3Label51 = (Label) root.lookup("#panel3Label51");
-        panel3Label52 = (Label) root.lookup("#panel3Label52");
-        panel3Label53 = (Label) root.lookup("#panel3Label53");
-        panel3Label54 = (Label) root.lookup("#panel3Label54");
-        panel3Label55 = (Label) root.lookup("#panel3Label55");
-        panel3Label56 = (Label) root.lookup("#panel3Label56");
-        panel3Label57 = (Label) root.lookup("#panel3Label57");
-        panel3Label58 = (Label) root.lookup("#panel3Label58");
-        panel3Label59 = (Label) root.lookup("#panel3Label59");
-        panel3Label60 = (Label) root.lookup("#panel3Label60");
-        panel3Label61 = (Label) root.lookup("#panel3Label61");
-        panel3Label62 = (Label) root.lookup("#panel3Label62");
-        panel3Label63 = (Label) root.lookup("#panel3Label63");
-        panel3Label64 = (Label) root.lookup("#panel3Label64");
-        panel3Label65 = (Label) root.lookup("#panel3Label65");
-        panel3Label66 = (Label) root.lookup("#panel3Label66");
-        panel3Label67 = (Label) root.lookup("#panel3Label67");
-        panel3Label68 = (Label) root.lookup("#panel3Label68");
-        panel3Label69 = (Label) root.lookup("#panel3Label69");
-        panel3Label70 = (Label) root.lookup("#panel3Label70");
-        panel3Label71 = (Label) root.lookup("#panel3Label71");
-        panel3Label72 = (Label) root.lookup("#panel3Label72");
-        panel3Label73 = (Label) root.lookup("#panel3Label73");
-        panel3Label74 = (Label) root.lookup("#panel3Label74");
-        panel3Label75 = (Label) root.lookup("#panel3Label75");
-        panel3Label76 = (Label) root.lookup("#panel3Label76");
-        panel3Label77 = (Label) root.lookup("#panel3Label77");
-        panel3Label78 = (Label) root.lookup("#panel3Label78");
-        panel3Label79 = (Label) root.lookup("#panel3Label79");
-        panel3Label80 = (Label) root.lookup("#panel3Label80");
-        panel3Label81 = (Label) root.lookup("#panel3Label81");
-        panel3Label82 = (Label) root.lookup("#panel3Label82");
-        panel3Label83 = (Label) root.lookup("#panel3Label83");
-        panel3Label84 = (Label) root.lookup("#panel3Label84");
-        panel3Label85 = (Label) root.lookup("#panel3Label85");
-        panel3Label86 = (Label) root.lookup("#panel3Label86");
-        panel3Label87 = (Label) root.lookup("#panel3Label87");
-        panel3Label88 = (Label) root.lookup("#panel3Label88");
-        panel3Label89 = (Label) root.lookup("#panel3Label89");
-        panel3Label90 = (Label) root.lookup("#panel3Label90");
-        panel3Label91 = (Label) root.lookup("#panel3Label91");
-        panel3Label92 = (Label) root.lookup("#panel3Label92");
+        for (int i=1; i<=92;i++)
+            labels.add ( (Label) root.lookup("#panel3Label" + i) );
+        for (int i=1; i<=8;i++)
+            redLights.add((Circle) root.lookup("#panel3redLight" + i));
+        for (int i=1; i<=15; i++)
+            blackLights.add((Circle) root.lookup("#panel3blackLight" + i));
+        for (int i=1; i<=3; i++)
+            greenLights.add((Circle) root.lookup("#panel3greenLight" + i));
+        for (int i = 1; i<=12;i++)
+            blackButtons.add((ToggleButton) root.lookup("#panel3BlackButton"+i));
+
+        yellowLight = (Circle) root.lookup("#panel3yellowLight");
+        for (int i=1; i<=3; i++)
+            switchers.add( (Button) root.lookup("#panel3switch" + i)  );
+
+        line1 = (Line) root.lookup("#panel3Line1");
+
+        line1Rotation = new Rotate();
+        line1Rotation.pivotXProperty().bind(line1.startXProperty());
+        line1Rotation.pivotYProperty().bind(line1.startYProperty());
+        line1.getTransforms().add(line1Rotation);
+
 
     }
     private void setPosition(){
-        setLabel(panel3Label1, 0.15, 0.03, fontSize.divide(0.66));
-        setLabel(panel3Label2, 0.45, 0.02, fontSize.divide(0.83));
-        setLabel(panel3Label3, 0.17, 0.05, fontSize.divide(0.66));
-        setLabel(panel3Label4, 0.4, 0.045);
-        setLabel(panel3Label5, 0.385, 0.056);
-        setLabel(panel3Label6, 0.465, 0.045);
-        setLabel(panel3Label7, 0.465, 0.056);
-        setLabel(panel3Label8, 0.64, 0.065);
-        setLabel(panel3Label9, 0.685, 0.055);
-        setLabel(panel3Label10, 0.685, 0.065);
-        setLabel(panel3Label11, 0.5, 0.077, fontSize.divide(0.7));
-        setLabel(panel3Label12, 0.35, 0.068);
-        setLabel(panel3Label13, 0.35, 0.078);
-        setLabel(panel3Label14, 0.34, 0.11);
-        setLabel(panel3Label15, 0.315, 0.14);
-        setLabel(panel3Label16, 0.34, 0.2);
-        setLabel(panel3Label17, 0.68, 0.17, fontSize.divide(1.2));
-        setLabel(panel3Label18, 0.825, 0.065, fontSize.divide(0.8));
-        setLabel(panel3Label19, 0.815, 0.085, fontSize.divide(0.8));
-        setLabel(panel3Label20, 0.315, 0.25);
-        setLabel(panel3Label21, 0.32, 0.28);
-        setLabel(panel3Label22, 0.38, 0.28);
-        setLabel(panel3Label23, 0.475, 0.288);
-        setLabel(panel3Label24, 0.56, 0.288);
-        setLabel(panel3Label25, 0.64, 0.288);
-        setLabel(panel3Label26, 0.68, 0.288, fontSize.divide(1.2));
-        setLabel(panel3Label27, 0.5, 0.35);
-        setLabel(panel3Label28, 0.1, 0.39);
-        setLabel(panel3Label29, 0.143, 0.39,  fontSize.divide(1.2));
-        setLabel(panel3Label30, 0.205, 0.39);
-        setLabel(panel3Label31, 0.385, 0.39);
-        setLabel(panel3Label32, 0.475, 0.39);
-        setLabel(panel3Label33, 0.555, 0.39);
-        setLabel(panel3Label34, 0.63, 0.39);
-        setLabel(panel3Label35, 0.77, 0.4);
-        setLabel(panel3Label36, 0.84, 0.4);
-        setLabel(panel3Label37, 0.91, 0.4);
-        setLabel(panel3Label38, 0.142, 0.44, fontSize.divide(1.2));
-        setLabel(panel3Label39, 0.1445, 0.455);
-        setLabel(panel3Label40, 0.23, 0.44);
-        setLabel(panel3Label41, 0.245, 0.455);
-        setLabel(panel3Label42, 0.25, 0.511);
-        setLabel(panel3Label43, 0.415, 0.415);
-        setLabel(panel3Label44, 0.425, 0.429);
-        setLabel(panel3Label45, 0.425, 0.44);
-        setLabel(panel3Label46, 0.15, 0.53);
-        setLabel(panel3Label47, 0.325, 0.53);
-        setLabel(panel3Label48, 0.11, 0.555);
-        setLabel(panel3Label49, 0.19, 0.555);
-        setLabel(panel3Label50, 0.27, 0.555);
-        setLabel(panel3Label51, 0.33, 0.555);
-        setLabel(panel3Label52, 0.38, 0.555);
-        setLabel(panel3Label53, 0.5, 0.55);
-        setLabel(panel3Label54, 0.63, 0.55);
-        setLabel(panel3Label55, 0.69, 0.55);
-        setLabel(panel3Label56, 0.815, 0.55);
-        setLabel(panel3Label57, 0.85, 0.5);
-        setLabel(panel3Label58, 0.87, 0.51);
-        setLabel(panel3Label59, 0.11, 0.63);
-        setLabel(panel3Label60, 0.33, 0.63);
-        setLabel(panel3Label61, 0.08, 0.64);
-        setLabel(panel3Label62, 0.14, 0.64);
-        setLabel(panel3Label63, 0.3, 0.64);
-        setLabel(panel3Label64, 0.36, 0.64);
-        setLabel(panel3Label65, 0.6, 0.64);
-        setLabel(panel3Label66, 0.678, 0.67);
-        setLabel(panel3Label67, 0.71, 0.74);
-        setLabel(panel3Label68, 0.86, 0.615);
-        setLabel(panel3Label69, 0.11, 0.725);
-        setLabel(panel3Label70, 0.09, 0.735);
-        setLabel(panel3Label71, 0.16, 0.725);
-        setLabel(panel3Label72, 0.225, 0.725);
-        setLabel(panel3Label73, 0.315, 0.74);
-        setLabel(panel3Label74, 0.38, 0.73);
-        setLabel(panel3Label75, 0.37, 0.74);
-        setLabel(panel3Label76, 0.105, 0.795);
-        setLabel(panel3Label77, 0.07, 0.81);
-        setLabel(panel3Label78, 0.13, 0.81);
-        setLabel(panel3Label79, 0.3, 0.86, fontSize.divide(1.2) );
-        setLabel(panel3Label80, 0.355, 0.86, fontSize.divide(1.2) );
-        setLabel(panel3Label81, 0.36, 0.92, fontSize.divide(1.2) );
-        setLabel(panel3Label82, 0.37, 0.83);
-        setLabel(panel3Label83, 0.5, 0.79);
-        setLabel(panel3Label84, 0.48, 0.81);
-        setLabel(panel3Label85, 0.55, 0.81);
-        setLabel(panel3Label86, 0.745, 0.8);
-        setLabel(panel3Label87, 0.81, 0.79);
-        setLabel(panel3Label88, 0.9, 0.785);
-        setLabel(panel3Label89, 0.88, 0.8);
-        setLabel(panel3Label90, 0.75, 0.88);
-        setLabel(panel3Label91, 0.82, 0.88);
-        setLabel(panel3Label92, 0.9, 0.88);
+        setLabel(labels.get(0), 0.15, 0.03, fontSize.divide(0.66));
+        setLabel(labels.get(1), 0.45, 0.02, fontSize.divide(0.83));
+        setLabel(labels.get(2), 0.17, 0.05, fontSize.divide(0.66));
+        setLabel(labels.get(3), 0.4, 0.045);
+        setLabel(labels.get(4), 0.385, 0.056);
+        setLabel(labels.get(5), 0.465, 0.045);
+        setLabel(labels.get(6), 0.465, 0.056);
+        setLabel(labels.get(7), 0.64, 0.065);
+        setLabel(labels.get(8), 0.685, 0.055);
+        setLabel(labels.get(9), 0.685, 0.065);
+        setLabel(labels.get(10), 0.5, 0.077, fontSize.divide(0.7));
+        setLabel(labels.get(11), 0.35, 0.068);
+        setLabel(labels.get(12), 0.35, 0.078);
+        setLabel(labels.get(13), 0.34, 0.11);
+        setLabel(labels.get(14), 0.315, 0.14);
+        setLabel(labels.get(15), 0.34, 0.2);
+        setLabel(labels.get(16), 0.68, 0.17, fontSize.divide(1.2));
+        setLabel(labels.get(17), 0.825, 0.065, fontSize.divide(0.8));
+        setLabel(labels.get(18), 0.815, 0.085, fontSize.divide(0.8));
+        setLabel(labels.get(19), 0.315, 0.25);
+        setLabel(labels.get(20), 0.32, 0.28);
+        setLabel(labels.get(21), 0.38, 0.28);
+        setLabel(labels.get(22), 0.475, 0.288);
+        setLabel(labels.get(23), 0.56, 0.288);
+        setLabel(labels.get(24), 0.64, 0.288);
+        setLabel(labels.get(25), 0.68, 0.288, fontSize.divide(1.2));
+        setLabel(labels.get(26), 0.5, 0.35);
+        setLabel(labels.get(27), 0.1, 0.39);
+        setLabel(labels.get(28), 0.143, 0.39,  fontSize.divide(1.2));
+        setLabel(labels.get(29), 0.205, 0.39);
+        setLabel(labels.get(30), 0.385, 0.39);
+        setLabel(labels.get(31), 0.475, 0.39);
+        setLabel(labels.get(32), 0.555, 0.39);
+        setLabel(labels.get(33), 0.63, 0.39);
+        setLabel(labels.get(34), 0.77, 0.4);
+        setLabel(labels.get(35), 0.84, 0.4);
+        setLabel(labels.get(36), 0.91, 0.4);
+        setLabel(labels.get(37), 0.142, 0.44, fontSize.divide(1.2));
+        setLabel(labels.get(38), 0.1445, 0.455);
+        setLabel(labels.get(39), 0.23, 0.44);
+        setLabel(labels.get(40), 0.245, 0.455);
+        setLabel(labels.get(41), 0.25, 0.511);
+        setLabel(labels.get(42), 0.415, 0.415);
+        setLabel(labels.get(43), 0.425, 0.429);
+        setLabel(labels.get(44), 0.425, 0.44);
+        setLabel(labels.get(45), 0.15, 0.53);
+        setLabel(labels.get(46), 0.325, 0.53);
+        setLabel(labels.get(47), 0.11, 0.555);
+        setLabel(labels.get(48), 0.19, 0.555);
+        setLabel(labels.get(49), 0.27, 0.555);
+        setLabel(labels.get(50), 0.33, 0.555);
+        setLabel(labels.get(51), 0.38, 0.555);
+        setLabel(labels.get(52), 0.5, 0.55);
+        setLabel(labels.get(53), 0.63, 0.55);
+        setLabel(labels.get(54), 0.69, 0.55);
+        setLabel(labels.get(55), 0.815, 0.55);
+        setLabel(labels.get(56), 0.85, 0.5);
+        setLabel(labels.get(57), 0.87, 0.51);
+        setLabel(labels.get(58), 0.11, 0.63);
+        setLabel(labels.get(59), 0.33, 0.63);
+        setLabel(labels.get(60), 0.08, 0.64);
+        setLabel(labels.get(61), 0.14, 0.64);
+        setLabel(labels.get(62), 0.3, 0.64);
+        setLabel(labels.get(63), 0.36, 0.64);
+        setLabel(labels.get(64), 0.6, 0.64);
+        setLabel(labels.get(65), 0.678, 0.67);
+        setLabel(labels.get(66), 0.71, 0.74);
+        setLabel(labels.get(67), 0.86, 0.615);
+        setLabel(labels.get(68), 0.11, 0.725);
+        setLabel(labels.get(69), 0.09, 0.735);
+        setLabel(labels.get(70), 0.16, 0.725);
+        setLabel(labels.get(71), 0.225, 0.725);
+        setLabel(labels.get(72), 0.315, 0.74);
+        setLabel(labels.get(73), 0.38, 0.73);
+        setLabel(labels.get(74), 0.37, 0.74);
+        setLabel(labels.get(75), 0.105, 0.795);
+        setLabel(labels.get(76), 0.07, 0.81);
+        setLabel(labels.get(77), 0.13, 0.81);
+        setLabel(labels.get(78), 0.3, 0.86, fontSize.divide(1.2) );
+        setLabel(labels.get(79), 0.355, 0.86, fontSize.divide(1.2) );
+        setLabel(labels.get(80), 0.36, 0.92, fontSize.divide(1.2) );
+        setLabel(labels.get(81), 0.37, 0.83);
+        setLabel(labels.get(82), 0.5, 0.79);
+        setLabel(labels.get(83), 0.48, 0.81);
+        setLabel(labels.get(84), 0.55, 0.81);
+        setLabel(labels.get(85), 0.745, 0.8);
+        setLabel(labels.get(86), 0.81, 0.79);
+        setLabel(labels.get(87), 0.9, 0.785);
+        setLabel(labels.get(88), 0.88, 0.8);
+        setLabel(labels.get(89), 0.75, 0.88);
+        setLabel(labels.get(90), 0.82, 0.88);
+        setLabel(labels.get(91), 0.9, 0.88);
+
+        setLight(redLights.get(0), 0.407, 0.11);
+        setLight(redLights.get(1), 0.47, 0.11);
+        setLight(redLights.get(2), 0.65, 0.11);
+        setLight(redLights.get(3), 0.715, 0.205);
+        setLight(redLights.get(4), 0.715, 0.325);
+        setLight(redLights.get(5), 0.259, 0.49);
+        setLight(redLights.get(6), 0.83, 0.59);
+        setLight(redLights.get(7), 0.93, 0.59);
+        setLight(blackLights.get(0), 0.393, 0.325);
+        setLight(blackLights.get(1), 0.485, 0.325);
+        setLight(blackLights.get(2), 0.575, 0.325);
+        setLight(blackLights.get(3), 0.65, 0.325);
+        setLight(blackLights.get(4), 0.393, 0.425);
+        setLight(blackLights.get(5), 0.8, 0.435);
+        setLight(blackLights.get(6), 0.1247, 0.59);
+        setLight(blackLights.get(7), 0.21, 0.59);
+        setLight(blackLights.get(8), 0.284, 0.59);
+        setLight(blackLights.get(9), 0.347, 0.59);
+        setLight(blackLights.get(10), 0.4, 0.59);
+        setLight(blackLights.get(11), 0.715, 0.59);
+        setLight(blackLights.get(12), 0.118, 0.78);
+        setLight(blackLights.get(13), 0.396, 0.79);
+        setLight(blackLights.get(14), 0.396, 0.87);
+        setLight(greenLights.get(0), 0.645, 0.435);
+        setLight(greenLights.get(1), 0.872, 0.435);
+        setLight(greenLights.get(2), 0.94, 0.435);
+
+        setButton(blackButtons.get(0), 0.32, 0.3);
+        setButton(blackButtons.get(1), 0.11, 0.41);
+        setButton(blackButtons.get(2), 0.19, 0.41);
+
+        setButton(blackButtons.get(3), 0.42, 0.47);
+
+        setButton(blackButtons.get(4), 0.075, 0.66);
+        setButton(blackButtons.get(5), 0.14, 0.66);
+        setButton(blackButtons.get(6), 0.3, 0.66);
+        setButton(blackButtons.get(7), 0.365, 0.66);
+        setButton(blackButtons.get(8), 0.18, 0.75);
+        setButton(blackButtons.get(9), 0.25, 0.75);
+
+        setButton(blackButtons.get(10), 0.065, 0.83);
+        setButton(blackButtons.get(11), 0.125, 0.83);
+
+        setBigLight(yellowLight, 0.65, 0.59);
+
+        setTumbler(switchers.get(0), 0.81265, 0.645);
+        setTumbler(switchers.get(1), 0.91405, 0.645);
+        setTumbler(switchers.get(2), 0.64, 0.825);
+
+        line1.startXProperty().bind(splitBox.heightProperty().divide(0.75).multiply(0.845));
+        line1.startYProperty().bind(splitBox.heightProperty().multiply(0.268));
+        line1.endXProperty().bind(splitBox.heightProperty().divide(0.75).multiply(0.78));
+        line1.endYProperty().bind(splitBox.heightProperty().multiply(0.2));
 
 
 
 
+        switchers.get(0).setOnAction(ev -> SwitchRotate(switchers.get(0)));
+        switchers.get(1).setOnAction(ev -> SwitchRotate(switchers.get(1)));
 
+        switchers.get(2).setOnAction(ev -> {
+            switch ((int) switchers.get(2).getRotate()) {
+                case 0:
+                    switchers.get(2).setRotate(40);
+                    break;
+                case 40:
+                    switchers.get(2).setRotate(-40);
+                    break;
+                case -40:
+                    switchers.get(2).setRotate(0);
+                    break;
 
+            }
+        });
 
 
     }
@@ -321,4 +260,96 @@ public class Panel3 extends Controller{
         label.layoutYProperty().bind(panel2.heightProperty().multiply(y));
         label.styleProperty().bind(Bindings.concat("-fx-font-size: ", fontSize, ";"));
     }
+
+    private void setBigLight(Circle circle, double x, double y){
+        circle.layoutYProperty().bind(panel3.heightProperty().multiply(y));
+        circle.layoutXProperty().bind(splitBox.heightProperty().divide(0.75).multiply(x));
+        circle.radiusProperty().bind(panel3.heightProperty().divide(40));
+        circle.styleProperty().bind(Bindings.concat("-fx-stroke-width: ", circle.getRadius()/4 , ";"));
+        circle.setEffect(new Lighting());
+    }
+
+    private void setLight(Circle circle, double x, double y){
+        circle.layoutYProperty().bind(panel3.heightProperty().multiply(y));
+        circle.layoutXProperty().bind(splitBox.heightProperty().divide(0.75).multiply(x));
+        circle.radiusProperty().bind(panel3.heightProperty().divide(60));
+        circle.styleProperty().bind(Bindings.concat("-fx-stroke-width: ", circle.getRadius()/4 , ";"));
+        circle.setEffect(new Lighting());
+    }
+
+    private void setButton(ToggleButton tb, double x, double y) {
+        Circle cir = new Circle(1);
+
+        cir.radiusProperty().bind(panel3.heightProperty().divide(50));
+        tb.setShape(cir);
+
+
+        cir.styleProperty().bind(Bindings.concat("-fx-stroke-width: ", cir.getRadius() / 4, ";"));
+
+        tb.minHeightProperty().bind(splitBox.heightProperty().divide(50).multiply(2));
+        tb.minWidthProperty().bind(splitBox.heightProperty().divide(50).multiply(2));
+        tb.maxHeightProperty().bind(splitBox.heightProperty().divide(50).multiply(2));
+        tb.maxHeightProperty().bind(splitBox.heightProperty().divide(50).multiply(2));
+
+        tb.layoutXProperty().bind(splitBox.heightProperty().divide(0.75).multiply(x));
+        tb.layoutYProperty().bind(splitBox.heightProperty().multiply(y));
+
+        tb.setEffect(lighting);
+        tb.setOnAction(e -> {
+            if (tb.isSelected()) {
+                tb.setEffect(new InnerShadow());
+            } else {
+                tb.setEffect(lighting);
+            }
+        });
+
+    }
+
+    private void setTumbler(ButtonBase b, double x, double y){
+        //buttonBase because using toggleButton and button at this method
+        //0,6178010471204188481675392670157
+        b.minHeightProperty().bind(splitBox.heightProperty().divide(13));
+        b.minWidthProperty().bind(splitBox.heightProperty().divide(25));
+        b.maxHeightProperty().bind(splitBox.heightProperty().divide(13));
+        b.maxHeightProperty().bind(splitBox.heightProperty().divide(25));
+        b.layoutXProperty().bind(splitBox.heightProperty().divide(0.75).multiply(x));
+        b.layoutYProperty().bind(splitBox.heightProperty().multiply(y));
+    }
+
+    private void SwitchRotate(Button b){
+            switch ((int) b.getRotate()) {
+                case 0:
+                    b.setRotate(36);
+                    break;
+                case 36:
+                    b.setRotate(72);
+                    break;
+                case 72:
+                    b.setRotate(108);
+                    break;
+                case 108:
+                    b.setRotate(144);
+                    break;
+                case 144:
+                    b.setRotate(180);
+                    break;
+                case 180:
+                    b.setRotate(216);
+                    break;
+                case 216:
+                    b.setRotate(252);
+                    break;
+                case 252:
+                    b.setRotate(288);
+                    break;
+                case 288:
+                    b.setRotate(324);
+                    break;
+                case 324:
+                    b.setRotate(0);
+                    break;
+            }
+    }
+
+
 }

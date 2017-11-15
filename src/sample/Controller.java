@@ -5,6 +5,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.SplitPane;
 import javafx.scene.effect.Bloom;
@@ -28,6 +29,7 @@ public class Controller{
 
     Lighting lighting = new Lighting();
 
+    Bloom bloom = new Bloom();
     //Controller() {}
 
     Controller (){
@@ -59,7 +61,6 @@ public class Controller{
 
     }
     public void lightOn(Circle c){
-
         switch (c.getStyleClass().toString()) {
             case "greenLight":
                 c.setFill(Color.rgb(50,255,50 ));
@@ -75,7 +76,7 @@ public class Controller{
                 break;
         }
         //c.setEffect(new Lighting());
-        c.setEffect(new Bloom());
+        c.setEffect(bloom);
     }
 
     public void lightOff(Circle c){
@@ -84,4 +85,6 @@ public class Controller{
         c.getStyleClass().add(cl);
         c.setEffect(lighting);
     }
+
+
 }

@@ -43,6 +43,7 @@ public class Panel1 extends Controller{
     private ArrayList<Circle> active = new ArrayList<>();
     private Set<Button> activeButtons = new HashSet<>();
 
+    public static Label hint;
 
     public  void addActive(Circle c){
         active.add(c);
@@ -75,7 +76,11 @@ public class Panel1 extends Controller{
     public Rotate getLine1Rotation() { return line1Rotation; }
     public Rotate getLine2Rotation() { return line2Rotation; }
     public Rotate getLine3Rotation() { return line3Rotation; }
+    public Line getLine1(){return line1;}
     public Line getLine2(){return line2;}
+    public Line getLine3(){return line3;}
+
+
 
     Panel1(){
         init();
@@ -86,6 +91,7 @@ public class Panel1 extends Controller{
         //labels
         for (int i= 1; i<=49; i++)
             labels.add((Label) root.lookup("#panel1Label" + i));
+        hint = (Label) root.lookup("#hint");
         //lights
         //red
         for (int i=1; i<=5;i++)
@@ -118,7 +124,6 @@ public class Panel1 extends Controller{
         line1Rotation = new Rotate();
         line2Rotation = new Rotate();
         line3Rotation = new Rotate();
-
 
         allLights.addAll(greenLights);
         allLights.addAll(redLights);
@@ -259,6 +264,10 @@ public class Panel1 extends Controller{
                     break;
                 case 140:
                     tumblerButtons.get(0).setRotate(320);
+                    if (activeButtons.contains(grayButtons.get(2)) && !Main.hint.isActivated(grayButtons.get(2))){
+                        Main.hint.getHint(tumblerButtons.get(0));
+                        Main.hint.setActivated(grayButtons.get(2));
+                    }
                     break;
                 case 320:
                     tumblerButtons.get(0).setRotate(0);
@@ -283,77 +292,114 @@ public class Panel1 extends Controller{
 
         //холодная прокрутка хп
         grayButtons.get(1).setOnMousePressed(event -> {
-            line1Rotation.pivotXProperty().bind(line1.startXProperty());
-            line1Rotation.pivotYProperty().bind(line1.startYProperty());
-            line1.getTransforms().add(line1Rotation);
-            Timeline timeline = new Timeline(
-                    new KeyFrame(Duration.millis(3900), new KeyValue(line1Rotation.angleProperty(), 60)),
-                    new KeyFrame(Duration.millis(5300), new KeyValue(line1Rotation.angleProperty(), 60)),
-                    new KeyFrame(Duration.millis(8700), new KeyValue(line1Rotation.angleProperty(), 0)));
-            timeline.setAutoReverse(true);
-            timeline.play();
-            activeButtons.add(grayButtons.get(1));
+            if(Main.activatePanel && tumblers.get(0).isSelected() && activeButtons.contains(grayButtons.get(2)) && !activeButtons.contains(grayButtons.get(1)) && tumblerButtons.get(0).getRotate()== 320) {
+                activeButtons.add(grayButtons.get(1));
+                line1Rotation.pivotXProperty().bind(line1.startXProperty());
+                line1Rotation.pivotYProperty().bind(line1.startYProperty());
+                line1.getTransforms().add(line1Rotation);
+                Timeline timeline = new Timeline(
+                        new KeyFrame(Duration.millis(3900), new KeyValue(line1Rotation.angleProperty(), 60)),
+                        new KeyFrame(Duration.millis(5300), new KeyValue(line1Rotation.angleProperty(), 60)),
+                        new KeyFrame(Duration.millis(8700), new KeyValue(line1Rotation.angleProperty(), 0)),
+                        new KeyFrame(Duration.millis(8700), event1 -> {
+                            Main.hint.getHint(grayButtons.get(1));
+                        }));
 
+                timeline.setAutoReverse(true);
+                timeline.play();
+                activeButtons.add(grayButtons.get(1));
+            } else {
+                Main.decreaseMark();
+                System.out.println("ХП");
+            }
         });
 
         //запуск гап
         grayButtons.get(0).setOnAction(event -> {
-
-            line1Rotation.pivotXProperty().bind(line1.startXProperty());
-            line1Rotation.pivotYProperty().bind(line1.startYProperty());
-            line1.getTransforms().add(line1Rotation);
-            line2Rotation.pivotXProperty().bind(line2.startXProperty());
-            line2Rotation.pivotYProperty().bind(line2.startYProperty());
-            line2.getTransforms().add(line2Rotation);
-            line3Rotation.pivotXProperty().bind(line3.startXProperty());
-            line3Rotation.pivotYProperty().bind(line3.startYProperty());
-            line3.getTransforms().add(line3Rotation);
-            Timeline timeline = new Timeline(
-                    new KeyFrame(Duration.millis(8600), new KeyValue(line1Rotation.angleProperty(), 235)),
-                    new KeyFrame(Duration.millis(8600), new KeyValue(line2Rotation.angleProperty(), 225)),
-                    new KeyFrame(Duration.millis(8600), event1 -> {
-                                activeButtons.add(grayButtons.get(0));
-                                addActive(yellowLight1);
-                                lightOn(yellowLight1);
-                                addActive(greenLights.get(3));
-                                lightOn(greenLights.get(3));
-                            }),
-                    new KeyFrame(Duration.millis(16000), new KeyValue(line3Rotation.angleProperty(), 185)),
-                    new KeyFrame(Duration.millis(16000), new KeyValue(line1Rotation.angleProperty(), 257)),
-                    new KeyFrame(Duration.millis(16000), new KeyValue(line2Rotation.angleProperty(), 145))
-            );
-            timeline.play();
-
-            //removeRed Buton
-            //activeButtons.remove( )
+            line1Rotation = new Rotate();
+            if (Main.activatePanel && !activeButtons.contains(grayButtons.get(0)) &&  tumblerButtons.get(0).getRotate()==320) {
+                activeButtons.add(grayButtons.get(0));
+                line1Rotation.pivotXProperty().bind(line1.startXProperty());
+                line1Rotation.pivotYProperty().bind(line1.startYProperty());
+                line1.getTransforms().add(line1Rotation);
+                line2Rotation.pivotXProperty().bind(line2.startXProperty());
+                line2Rotation.pivotYProperty().bind(line2.startYProperty());
+                line2.getTransforms().add(line2Rotation);
+                line3Rotation.pivotXProperty().bind(line3.startXProperty());
+                line3Rotation.pivotYProperty().bind(line3.startYProperty());
+                line3.getTransforms().add(line3Rotation);
+                Timeline timeline = new Timeline(
+                        new KeyFrame(Duration.millis(8600), new KeyValue(line1Rotation.angleProperty(), 235)),
+                        new KeyFrame(Duration.millis(8600), new KeyValue(line2Rotation.angleProperty(), 225)),
+                        new KeyFrame(Duration.millis(8600), event1 -> {
+                            activeButtons.add(grayButtons.get(0));
+                            addActive(yellowLight1);
+                            lightOn(yellowLight1);
+                            addActive(greenLights.get(3));
+                            lightOn(greenLights.get(3));
+                            if (!activeButtons.contains(grayButtons.get(1)))
+                            {
+                                Main.hint.getHint(grayButtons.get(1));
+                            }
+                            Main.hint.getHint(grayButtons.get(0));
+                        }),
+                        new KeyFrame(Duration.millis(16000), new KeyValue(line3Rotation.angleProperty(), 185)),
+                        new KeyFrame(Duration.millis(16000), new KeyValue(line1Rotation.angleProperty(), 257)),
+                        new KeyFrame(Duration.millis(16000), new KeyValue(line2Rotation.angleProperty(), 145))
+                );
+                timeline.play();
+            }
+            else {
+                Main.decreaseMark();
+                System.out.println("Зап гап");
+            }
         });
 
         //питание управления
         tumblers.get(0).setOnMouseClicked(e -> {
-            if (tumblers.get(0).isSelected()) {
-                lightOn(greenLights.get(2));
-                lightOn(greenLights.get(5));
-                addActive(greenLights.get(5));
-                addActive(greenLights.get(2));
-            } else {
-                removeActive(greenLights.get(5));
-                removeActive(greenLights.get(2));
-                if (!getActive().contains(greenLights.get(2)) || !getActive().contains(greenLights.get(5))) {
-                    lightOff(greenLights.get(2));
-                    lightOff(greenLights.get(5));
+            if(Main.activatePanel) {
+                if (tumblers.get(0).isSelected()) {
+                    lightOn(greenLights.get(2));
+                    lightOn(greenLights.get(5));
+                    addActive(greenLights.get(5));
+                    addActive(greenLights.get(2));
+                    Main.hint.getHint(tumblers.get(0));
+                } else {
+                    removeActive(greenLights.get(5));
+                    removeActive(greenLights.get(2));
+                    if (!getActive().contains(greenLights.get(2)) || !getActive().contains(greenLights.get(5))) {
+                        lightOff(greenLights.get(2));
+                        lightOff(greenLights.get(5));
+                    }
                 }
+            }
+            else {
+                Main.decreaseMark();
+                System.out.println("питание управления");
             }
         });
 
         //open Luke
         grayButtons.get(2).setOnAction(e -> {
-            Timeline timeline = new Timeline(new KeyFrame(Duration.millis(3000), ev -> {
-                lightOn(greenLights.get(1));
-                addActive(greenLights.get(1));
-            }));
-            timeline.play();
-            removeActive(greenLights.get(2));
-            lightOff(greenLights.get(2));
+            if (tumblers.get(0).isSelected() && !activeButtons.contains(grayButtons.get(2)) ) {
+                activeButtons.add(grayButtons.get(2));
+                activeButtons.remove(grayButtons.get(3));
+                Timeline timeline = new Timeline(new KeyFrame(Duration.millis(3000), ev -> {
+                    lightOn(greenLights.get(1));
+                    addActive(greenLights.get(1));
+                    if ((int) tumblerButtons.get(0).getRotate() == 320 && !Main.hint.isActivated(tumblerButtons.get(0))){
+                        Main.hint.getHint( grayButtons.get(2));
+                        Main.hint.setActivated(tumblerButtons.get(0));
+                    }
+                }));
+                timeline.play();
+                removeActive(greenLights.get(2));
+                lightOff(greenLights.get(2));
+            }
+            else{
+                Main.decreaseMark();
+                System.out.println("open luke mistake");
+            }
         });
 
         //close luke
@@ -361,14 +407,14 @@ public class Panel1 extends Controller{
             Timeline timeline = new Timeline(new KeyFrame(Duration.millis(3000), ev -> {
                 lightOn(greenLights.get(2));
                 addActive(greenLights.get(2));
+                Main.hint.getHint(grayButtons.get(3));
             }));
             timeline.play();
+            activeButtons.add(grayButtons.get(3));
+            activeButtons.remove(grayButtons.get(2));
             removeActive(greenLights.get(1));
             lightOff(greenLights.get(1));
         });
-
-
-
     }
 
     private void lightsCheck(){

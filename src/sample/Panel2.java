@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 public class Panel2 extends Controller{
     //labels
+    private boolean lightsWasChecked = false;
     private ArrayList<Label> labels = new ArrayList<>();
     private ArrayList<Circle> greenLights = new ArrayList<>();
     private Circle redLight1;
@@ -47,7 +48,7 @@ public class Panel2 extends Controller{
 
         for (int i = 1; i <= 8; i++)
             tumblers.add( (ToggleButton) root.lookup("#panel2tumbler" + i) );
-        for (int i = 1; i <= 8; i++)
+        for (int i = 1; i <= 2; i++)
             tumblerButtons.add( (Button) root.lookup("#panel2tumblerButton" + i));
     }
 
@@ -116,6 +117,7 @@ public class Panel2 extends Controller{
             switch ((int) tumblerButtons.get(1).getRotate()){
                 case 52:
                     tumblerButtons.get(1).setRotate(100);
+                    lightsWasChecked = true;
                     lightsCheck();
                     break;
                 case 100:
@@ -124,6 +126,16 @@ public class Panel2 extends Controller{
                     break;
             }
         });
+
+        tumblers.get(4).setOnAction(et -> {
+            Main.activatePanel = true;
+            Main.hint.getHint(tumblers.get(4));
+            if (!lightsWasChecked){
+                Main.decreaseMark();
+            }
+
+        });
+
     }
 
     private void lightsCheck(){

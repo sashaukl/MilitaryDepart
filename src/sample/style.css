@@ -95,24 +95,28 @@
     -fx-rotate: 0deg;
 }
 
-#panel1tumblerButton2, #panel1tumbler1, #panel1tumbler2{
-    -fx-background-image: url("pics/tumbler1.png");
+#panel1tumbler1, #panel1tumbler2{
     -fx-background-color: transparent;
     -fx-background-size: 100% 100%;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
 }
 
+
+
 #panel1tumbler1{
     -fx-rotate: 180deg;
+    -fx-background-image: url("pics/tumbler1.png");
 }
 
 
 #panel1tumbler2{
-    -fx-rotate: -130deg;
+    -fx-background-image: url("pics/tumbler3.png");
+    -fx-rotate: -80deg;
 }
+
 #panel1tumbler2:selected{
-    -fx-rotate: -90deg;
+    -fx-rotate: -40deg;
 }
 
 .blackSwitcher{
@@ -130,11 +134,13 @@
 }
 
 .panel3Button:selected{
+    -fx-effect: innershadow( three-pass-box , cornsilk, 0, -10.0 , 0, 0);
+    -fx-border-width: 2;
 }
 
 .split-pane > .split-pane-divider {
-    //-fx-effect: innershadow( three-pass-box , white, 6, 0 , 2, 2);
-    //-fx-background-color: linear-gradient(to right, gray,  lightgray, lightgray, gray);
+//-fx-effect: innershadow( three-pass-box , white, 6, 0 , 2, 2);
+//-fx-background-color: linear-gradient(to right, gray,  lightgray, lightgray, gray);
     -fx-background-image: url("pics/slider.png");
     -fx-background-repeat: repeat-y;
     -fx-padding: 0 7 0 7;
@@ -154,5 +160,23 @@
     -fx-background-position: center;
 }
 /*Отменить последние действие*/
+
+#hint{
+    -fx-font-size: 20px;
+}
+
+.Menu #menu{
+    -fx-font-size: 20px;
+    -fx-background-color: #ffb836;
+    -fx-text-fill: red;
+
+}
+
+#AP{
+    -fx-background-color: aquamarine;
+    -fx-background-image: url("pics/start.png");
+    -fx-background-repeat: round;
+    -fx-background-size: stretch;
+}
 
 

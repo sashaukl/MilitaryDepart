@@ -15,336 +15,331 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane fx:id="commonBox" minHeight="400.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Main">
-   <children>
-      <MenuBar fx:id="Menu" prefHeight="25.0" prefWidth="733.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
+<AnchorPane fx:id="commonBox" minHeight="400.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Main">
+    <children>
+        <MenuBar fx:id="Menu" prefHeight="25.0" prefWidth="733.0" stylesheets="@style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <menus>
+                <Menu fx:id="menu1" mnemonicParsing="false" style="-fx-font-size: 14;" text="Упражнение">
+                    <items>
+                        <MenuItem fx:id="onBtn" mnemonicParsing="false" onAction="#TurnOnPower" text="ВКЛЮЧЕНИЕ ЭЛЕКТРОПИТАНИЯ ОТ ГАП" />
+                        <MenuItem fx:id="offBtn" mnemonicParsing="false" onAction="#TurnOffPower" text="ВЫКЛЮЧЕНИЕ ЭЛЕКТРОПИТАНИЯ ОТ ГАП" />
+                    </items>
+                </Menu>
+                <Menu fx:id="menu2" mnemonicParsing="false" style="-fx-font-size: 14;" text="Режим">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#setLearnModeTrue" text="Обучение" />
+                        <MenuItem mnemonicParsing="false" onAction="#setLearnModeFalse" text="Экзамен" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <SplitPane fx:id="splitBox" dividerPositions="0.33515731874145005" layoutY="25.0" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
             <items>
-              <MenuItem fx:id="closeBtn" mnemonicParsing="false" onAction="#TurnOnPower" text="ВКЛЮЧЕНИЕ ЭЛЕКТРОПИТАНИЯ ОТ ГАП" />
-                  <MenuItem mnemonicParsing="false" onAction="#TurnOffPower" text="ВЫКЛЮЧЕНИЕ ЭЛЕКТРОПИТАНИЯ ОТ ГАП" />
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Pane fx:id="gap" minHeight="-Infinity" prefWidth="156.0" stylesheets="@style.css">
+                            <children>
+                                <Label fx:id="panel1Label1" text="ВВОД ИВП 1" />
+                                <Label fx:id="panel1Label2" text="ВВОД ИВП 2" />
+                                <Label fx:id="panel1Label3" text="неиспр" />
+                                <Label fx:id="panel1Label4" text="раб" />
+                                <Label fx:id="panel1Label5" text="дм" />
+                                <Label fx:id="panel1Label6" text="неиспр" />
+                                <Label fx:id="panel1Label7" text="раб" />
+                                <Label fx:id="panel1Label8" text="првс1гап" />
+                                <Label fx:id="panel1Label9" text="првс2гап" />
+                                <Label fx:id="panel1Label10" text="люки откр" />
+                                <Label fx:id="panel1Label11" text="зап гап" />
+                                <Label fx:id="panel1Label12" text="стоп гап" />
+                                <Label fx:id="panel1Label13" text="хп" />
+                                <Label fx:id="panel1Label14" text="люки закр" />
+                                <Label fx:id="panel1Label15" text="откр люки" />
+                                <Label fx:id="panel1Label16" text="закр люки" />
+                                <Label fx:id="panel1Label17" text="ивп1" />
+                                <Label fx:id="panel1Label18" text="ивп2" />
+                                <Label fx:id="panel1Label19" text="гап" />
+                                <Label fx:id="panel1Label20" text="гом" />
+                                <Label fx:id="panel1Label21" text="A-B" />
+                                <Label fx:id="panel1Label22" text="B-C" />
+                                <Label fx:id="panel1Label23" text="C-A" />
+                                <Label fx:id="panel1Label24" text="контр напр" />
+                                <Label fx:id="panel1Label25" text="установка напряжения" />
+                                <Label fx:id="panel1Label26" text="контр напр" />
+                                <Label fx:id="panel1Label27" text="гап" />
+                                <Label fx:id="panel1Label28" text="гом" />
+                                <Label fx:id="panel1Label29" text="включение нагрузок" />
+                                <Label fx:id="panel1Label30" text="пит упр" />
+                                <Label fx:id="panel1Label31" text="гап" />
+                                <Label fx:id="panel1Label32" text="ивп" />
+                                <Label fx:id="panel1Label33" text="гом" />
+                                <Label fx:id="panel1Label34" text="блокировка" />
+                                <Label fx:id="panel1Label35" text="при аол" />
+                                <Label fx:id="panel1Label36" text="вкл" />
+                                <Label fx:id="panel1Label37" text="откл" />
+                                <Label fx:id="panel1Label38" text="контр сигн" />
+                                <Label fx:id="panel1Label39" text="ламп" />
+                                <Label fx:id="panel1Label40" text="ПР ВС ОА" />
+                                <Label fx:id="panel1Label41" text="ОТКЛ НАГР" />
+                                <Label fx:id="panel1Label42" text="ЗАПРЕЩЕНО" />
+                                <Label fx:id="panel1Label43" text="вкл" />
+                                <Label fx:id="panel1Label44" text="откл" />
+                                <Label fx:id="panel1Label45" text="откл нагр" />
+                                <Label fx:id="panel1Label46" text="гап" />
+                                <Label fx:id="panel1Label47" text="гом" />
+                                <Label fx:id="panel1Label48" text="ГАП РАБ" />
+                                <Label fx:id="panel1Label49" text="ГОМ РАБ" />
+
+
+                                <Circle fx:id="greenLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
+                                <Circle fx:id="greenLight2" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
+                                <Circle fx:id="greenLight3" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
+                                <Circle fx:id="greenLight4" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
+                                <Circle fx:id="greenLight5" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
+                                <Circle fx:id="greenLight6" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
+                                <Circle fx:id="greenLight7" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
+                                <Circle fx:id="greenLight8" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
+                                <Circle fx:id="greenLight9" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
+                                <Circle fx:id="greenLight10" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
+
+
+
+                                <Circle fx:id="redLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
+                                <Circle fx:id="redLight2" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
+                                <Circle fx:id="redLight3" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
+
+                                <Circle fx:id="redLight4" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
+                                <Circle fx:id="redLight5" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
+
+                                <Circle fx:id="yellowLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="yellowLight" />
+                                <Circle fx:id="blackLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
+                                <Circle fx:id="blackLight2" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
+
+                                <Button fx:id="grayButton1" styleClass="grayButton" />
+                                <Button fx:id="grayButton2" styleClass="grayButton" />
+
+                                <Button fx:id="grayButton3" styleClass="grayButton" />
+                                <Button fx:id="grayButton4" styleClass="grayButton" />
+                                <Button fx:id="grayButton5" styleClass="grayButton" />
+                                <Button fx:id="grayButton6" styleClass="grayButton" />
+                                <Button fx:id="grayButton7" styleClass="grayButton" />
+                                <Button fx:id="redButton1" styleClass="redButton" />
+                                <Button fx:id="redButton2" styleClass="redButton" />
+
+                                <Button fx:id="panel1tumblerButton1" styleClass="blackSwitcher" />
+                                <Button fx:id="panel1tumblerButton2" styleClass="blackSwitcher" />
+
+                                <ToggleButton fx:id="panel1tumbler1" />
+                                <ToggleButton fx:id="panel1tumbler2" />
+
+                                <Line fx:id="line1" />
+                                <Line fx:id="line2" />
+                                <Line fx:id="line3" />
+
+                            </children>
+
+                        </Pane>
+                        <Pane fx:id="py" minHeight="0.0" minWidth="0.0" stylesheets="@style.css">
+                            <Label fx:id="panel2Label1" text="ПСТП" />
+                            <Label fx:id="panel2Label2" text="НАРУЖН ВОЗДУХ" />
+                            <Label fx:id="panel2Label3" text="КАБИНА" />
+                            <Label fx:id="panel2Label4" text="КУЗОВ" />
+                            <Label fx:id="panel2Label5" text="ОТКЛ" />
+                            <Label fx:id="panel2Label6" text="ТХМ" />
+                            <Label fx:id="panel2Label7" text="ИЗМЕНЕНИЕ В С" />
+                            <Label fx:id="panel2Label8" text="ЖАЛЮЗИ ДВИГ ОТКР" />
+                            <Label fx:id="panel2Label9" text="РОМ" />
+                            <Label fx:id="panel2Label10" text="ГОМ" />
+                            <Label fx:id="panel2Label11" text="ТХМ" />
+                            <Label fx:id="panel2Label12" text="ЗАКР" />
+                            <Label fx:id="panel2Label13" text="ОТКЛ" />
+                            <Label fx:id="panel2Label14" text="ОТКЛ" />
+                            <Label fx:id="panel2Label15" text="ОТКЛ" />
+                            <Label fx:id="panel2Label16" text="ВКЛЮЧЕНИЕ" />
+                            <Label fx:id="panel2Label17" text="ПУЛЬТА" />
+                            <Label fx:id="panel2Label18" text="ЭЛЕКТРООБОГРЕВ" />
+                            <Label fx:id="panel2Label19" text="ВЕНТИЛЯТОРЫ" />
+                            <Label fx:id="panel2Label20" text="ОТКЛ" />
+                            <Label fx:id="panel2Label21" text="ОТКЛ" />
+                            <Label fx:id="panel2Label22" text="ОТКЛ" />
+                            <Label fx:id="panel2Label23" text="ОТКЛ" />
+                            <Label fx:id="panel2Label24" text="ВКЛ" />
+                            <Label fx:id="panel2Label25" text="КОНТРОЛЬ ЛАМП" />
+
+                            <Circle fx:id="panel2greenLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
+                            <Circle fx:id="panel2greenLight2" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
+                            <Circle fx:id="panel2greenLight3" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
+                            <Circle fx:id="panel2redLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
+
+                            <ToggleButton fx:id="panel2tumbler1" styleClass="Tumbler" />
+                            <ToggleButton fx:id="panel2tumbler2" styleClass="Tumbler" />
+                            <ToggleButton fx:id="panel2tumbler3" styleClass="Tumbler" />
+                            <ToggleButton fx:id="panel2tumbler4" styleClass="Tumbler" />
+                            <ToggleButton fx:id="panel2tumbler5" styleClass="Tumbler" />
+                            <ToggleButton fx:id="panel2tumbler6" styleClass="Tumbler" />
+                            <ToggleButton fx:id="panel2tumbler7" styleClass="Tumbler" />
+                            <ToggleButton fx:id="panel2tumbler8" styleClass="Tumbler" />
+
+                            <Button fx:id="panel2tumblerButton1" rotate="325" styleClass="blackSwitcher" />
+                            <Button fx:id="panel2tumblerButton2" rotate="52" styleClass="blackSwitcher" />
+
+                        </Pane>
+                    </children>
+                </HBox>
+                <Pane fx:id="planeThird" prefHeight="100.0" prefWidth="245.0" stylesheets="@style.css">
+                    <Label fx:id="panel3Label1" text="МОЩНОСТЬ" />
+                    <Label fx:id="panel3Label2" text="СИСТЕМА Д-20" />
+                    <Label fx:id="panel3Label3" text="0,45-0,70" />
+                    <Label fx:id="panel3Label4" text="ЗАПРЕТ" />
+                    <Label fx:id="panel3Label5" text="ОТКЛ ПИТАНИЯ" />
+                    <Label fx:id="panel3Label6" text="КОНТР СИГНАЛА" />
+                    <Label fx:id="panel3Label7" text="ЛЧМ" />
+                    <Label fx:id="panel3Label8" text="ПРОБОЙ" />
+                    <Label fx:id="panel3Label9" text="УЗЛ" />
+                    <Label fx:id="panel3Label10" text="ВКЛ" />
+                    <Label fx:id="panel3Label11" text="НАКАЛ Д20-0М" />
+                    <Label fx:id="panel3Label12" text="ПОДСВЕТ" />
+                    <Label fx:id="panel3Label13" text="ШКАЛ" />
+                    <Label fx:id="panel3Label14" text="БОЛЬШЕ" />
+                    <Label fx:id="panel3Label15" text="ОТКЛ" />
+                    <Label fx:id="panel3Label16" text="МЕНЬШЕ" />
+                    <Label fx:id="panel3Label17" text="НЕИСПР СЕТИ БК 2" />
+                    <Label fx:id="panel3Label18" text="КОНТР." />
+                    <Label fx:id="panel3Label19" text="220В 400ГЦ" />
+                    <Label fx:id="panel3Label20" text="КОНТР. СИГНАЛ." />
+                    <Label fx:id="panel3Label21" text="ЛАМП" />
+                    <Label fx:id="panel3Label22" text="НАКАЛ" />
+                    <Label fx:id="panel3Label23" text="ГОТОВ" />
+                    <Label fx:id="panel3Label24" text="ВЫСОКОЕ" />
+                    <Label fx:id="panel3Label25" text="-27 кВ" />
+                    <Label fx:id="panel3Label26" text="НЕИСПР. СЕТИ БК 1" />
+                    <Label fx:id="panel3Label27" text="ВЫСОКОЕ" />
+                    <Label fx:id="panel3Label28" text="МЕНЬШЕ" />
+                    <Label fx:id="panel3Label29" text="ВХОДН. МОЩН." />
+                    <Label fx:id="panel3Label30" text="БОЛЬШЕ" />
+                    <Label fx:id="panel3Label31" text="СУЛ" />
+                    <Label fx:id="panel3Label32" text="ВКЛ." />
+                    <Label fx:id="panel3Label33" text="ОТКЛ." />
+                    <Label fx:id="panel3Label34" text="АНТЕННА" />
+                    <Label fx:id="panel3Label35" text="ЭКВИВАЛЕНТ" />
+                    <Label fx:id="panel3Label36" text="ОБЛУЧ. БРБ" />
+                    <Label fx:id="panel3Label37" text="ОБЛЮЧ. БРА" />
+                    <Label fx:id="panel3Label38" text="НЕИСПРАВН." />
+                    <Label fx:id="panel3Label39" text="Д94-6(Д50)" />
+                    <Label fx:id="panel3Label40" text="НЕИСПРАВН." />
+                    <Label fx:id="panel3Label41" text="Д00-10" />
+                    <Label fx:id="panel3Label42" text="СУА" />
+                    <Label fx:id="panel3Label43" text="ПОВТОРН." />
+                    <Label fx:id="panel3Label44" text="ВКЛ" />
+                    <Label fx:id="panel3Label45" text="СУЛ" />
+                    <Label fx:id="panel3Label46" text="ЗАСТОПР" />
+                    <Label fx:id="panel3Label47" text="ЗАСТОПР" />
+                    <Label fx:id="panel3Label48" text="Ep ЛЕВ." />
+                    <Label fx:id="panel3Label49" text="Ep ЛЕВ." />
+                    <Label fx:id="panel3Label50" text="Ep ПРАВ." />
+                    <Label fx:id="panel3Label51" text="Ep ЛЕВ." />
+                    <Label fx:id="panel3Label52" text="Ep ПРАВ." />
+                    <Label fx:id="panel3Label53" text="АНОД Д60-1М" />
+                    <Label fx:id="panel3Label54" text="220В 400 Гц" />
+                    <Label fx:id="panel3Label55" text="ЛЮКИ ОТКР" />
+                    <Label fx:id="panel3Label56" text="ОБЩ" />
+                    <Label fx:id="panel3Label57" text="НЕИСПР. ВЕНТИЛ." />
+                    <Label fx:id="panel3Label58" text="ПРИВОД" />
+                    <Label fx:id="panel3Label59" text="ЭМУ В" />
+                    <Label fx:id="panel3Label60" text="ЭМУ В" />
+                    <Label fx:id="panel3Label61" text="ВКЛ" />
+                    <Label fx:id="panel3Label62" text="ОТКЛ" />
+                    <Label fx:id="panel3Label63" text="ВКЛ" />
+                    <Label fx:id="panel3Label64" text="ОТКЛ" />
+                    <Label fx:id="panel3Label65" text="СНЯТИЕ БЛОКИРОВКИ Д02-7М" />
+                    <Label fx:id="panel3Label66" text="БЛОКИР. ЗАЩИТЫ" />
+                    <Label fx:id="panel3Label67" text="ОТКЛ" />
+                    <Label fx:id="panel3Label68" text="КОНТРЛЬ" />
+                    <Label fx:id="panel3Label69" text="Д-52М" />
+                    <Label fx:id="panel3Label70" text="ПОХОДНОЕ" />
+                    <Label fx:id="panel3Label71" text="СТОПОРЕНИЕ" />
+                    <Label fx:id="panel3Label72" text="РАССТОПОРЕНИЕ" />
+                    <Label fx:id="panel3Label73" text="СВЕРТ." />
+                    <Label fx:id="panel3Label74" text="АНТ. СТС" />
+                    <Label fx:id="panel3Label75" text="ЗАСТОПОРЕНО" />
+                    <Label fx:id="panel3Label76" text="Д25-М" />
+                    <Label fx:id="panel3Label77" text="ВКЛ" />
+                    <Label fx:id="panel3Label78" text="ОТКЛ" />
+                    <Label fx:id="panel3Label79" text="РАЗВЕРТ" />
+                    <Label fx:id="panel3Label80" text="СВЕРТ" />
+                    <Label fx:id="panel3Label81" text="СТОП" />
+                    <Label fx:id="panel3Label82" text="РАЗВЕРНУТО" />
+                    <Label fx:id="panel3Label83" text="АППАРАТУРА" />
+                    <Label fx:id="panel3Label84" text="ВКЛ." />
+                    <Label fx:id="panel3Label85" text="ОТКЛ." />
+                    <Label fx:id="panel3Label86" text="ЭЛ.ПЕЧЬ" />
+                    <Label fx:id="panel3Label87" text="ЛЮКИ ОТКР." />
+                    <Label fx:id="panel3Label88" text="МЕСН." />
+                    <Label fx:id="panel3Label89" text="ОСВЕЩ. ШКАФА." />
+                    <Label fx:id="panel3Label90" text="ОТКЛ." />
+                    <Label fx:id="panel3Label91" text="ЗАКР" />
+                    <Label fx:id="panel3Label92" text="ОТКЛ." />
+
+                    <Circle fx:id="panel3redLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
+                    <Circle fx:id="panel3redLight2" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
+                    <Circle fx:id="panel3redLight3" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
+                    <Circle fx:id="panel3redLight4" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
+                    <Circle fx:id="panel3redLight5" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
+                    <Circle fx:id="panel3redLight6" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
+                    <Circle fx:id="panel3redLight7" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
+                    <Circle fx:id="panel3redLight8" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
+
+                    <Circle fx:id="panel3blackLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
+                    <Circle fx:id="panel3blackLight2" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
+                    <Circle fx:id="panel3blackLight3" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
+                    <Circle fx:id="panel3blackLight4" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
+                    <Circle fx:id="panel3blackLight5" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
+                    <Circle fx:id="panel3blackLight6" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
+                    <Circle fx:id="panel3blackLight7" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
+                    <Circle fx:id="panel3blackLight8" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
+                    <Circle fx:id="panel3blackLight9" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
+                    <Circle fx:id="panel3blackLight10" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
+                    <Circle fx:id="panel3blackLight11" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
+                    <Circle fx:id="panel3blackLight12" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
+                    <Circle fx:id="panel3blackLight13" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
+                    <Circle fx:id="panel3blackLight14" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
+                    <Circle fx:id="panel3blackLight15" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
+
+                    <Circle fx:id="panel3greenLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
+                    <Circle fx:id="panel3greenLight2" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
+                    <Circle fx:id="panel3greenLight3" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
+
+                    <ToggleButton fx:id="panel3BlackButton1" styleClass="panel3Button" />
+                    <ToggleButton fx:id="panel3BlackButton2" styleClass="panel3Button" />
+                    <ToggleButton fx:id="panel3BlackButton3" styleClass="panel3Button" />
+                    <ToggleButton fx:id="panel3BlackButton4" styleClass="panel3Button" />
+                    <ToggleButton fx:id="panel3BlackButton5" styleClass="panel3Button" />
+                    <ToggleButton fx:id="panel3BlackButton6" styleClass="panel3Button" />
+                    <ToggleButton fx:id="panel3BlackButton7" styleClass="panel3Button" />
+                    <ToggleButton fx:id="panel3BlackButton8" styleClass="panel3Button" />
+                    <ToggleButton fx:id="panel3BlackButton9" styleClass="panel3Button" />
+                    <ToggleButton fx:id="panel3BlackButton10" styleClass="panel3Button" />
+                    <ToggleButton fx:id="panel3BlackButton11" styleClass="panel3Button" />
+                    <ToggleButton fx:id="panel3BlackButton12" styleClass="panel3Button" />
+
+                    <Circle fx:id="panel3yellowLight" radius="12.0" stroke="lemonchiffon" strokeType="INSIDE" />
+
+                    <Button fx:id="panel3switch1" styleClass="panel3switch" />
+                    <Button fx:id="panel3switch2" styleClass="panel3switch" />
+                    <Button fx:id="panel3switch3" styleClass="panel3switch" />
+
+                    <Line fx:id="panel3Line1" />
+
+
+                </Pane>
             </items>
-          </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-        </Menu>
-        </menus>
-      </MenuBar>
-      <SplitPane fx:id="splitBox" dividerPositions="0.33515731874145005" layoutY="25.0" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
-         <items>
-             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                 <children>
-                     <Pane fx:id="gap" minHeight="-Infinity" prefWidth="156.0" stylesheets="@style.css">
-                         <children>
-                             <Label fx:id="panel1Label1" text="ВВОД ИВП 1" />
-                             <Label fx:id="panel1Label2" text="ВВОД ИВП 2" />
-                             <Label fx:id="panel1Label3" text="неиспр" />
-                             <Label fx:id="panel1Label4" text="раб" />
-                             <Label fx:id="panel1Label5" text="дм" />
-                             <Label fx:id="panel1Label6" text="неиспр" />
-                             <Label fx:id="panel1Label7" text="раб" />
-                             <Label fx:id="panel1Label8" text="првс1гап" />
-                             <Label fx:id="panel1Label9" text="првс2гап" />
-                             <Label fx:id="panel1Label10" text="люки откр" />
-                             <Label fx:id="panel1Label11" text="зап гап" />
-                             <Label fx:id="panel1Label12" text="стоп гап" />
-                             <Label fx:id="panel1Label13" text="хп" />
-                             <Label fx:id="panel1Label14" text="люки закр" />
-                             <Label fx:id="panel1Label15" text="откр люки" />
-                             <Label fx:id="panel1Label16" text="закр люки" />
-                             <Label fx:id="panel1Label17" text="ивп1" />
-                             <Label fx:id="panel1Label18" text="ивп2" />
-                             <Label fx:id="panel1Label19" text="гап" />
-                             <Label fx:id="panel1Label20" text="гом" />
-                             <Label fx:id="panel1Label21" text="A-B" />
-                             <Label fx:id="panel1Label22" text="B-C" />
-                             <Label fx:id="panel1Label23" text="C-A" />
-                             <Label fx:id="panel1Label24" text="контр напр" />
-                             <Label fx:id="panel1Label25" text="установка напряжения" />
-                             <Label fx:id="panel1Label26" text="контр напр" />
-                             <Label fx:id="panel1Label27" text="гап" />
-                             <Label fx:id="panel1Label28" text="гом" />
-                             <Label fx:id="panel1Label29" text="включение нагрузок" />
-                             <Label fx:id="panel1Label30" text="пит упр" />
-                             <Label fx:id="panel1Label31" text="гап" />
-                             <Label fx:id="panel1Label32" text="ивп" />
-                             <Label fx:id="panel1Label33" text="гом" />
-                             <Label fx:id="panel1Label34" text="блокировка" />
-                             <Label fx:id="panel1Label35" text="при аол" />
-                             <Label fx:id="panel1Label36" text="вкл" />
-                             <Label fx:id="panel1Label37" text="откл" />
-                             <Label fx:id="panel1Label38" text="контр сигн" />
-                             <Label fx:id="panel1Label39" text="ламп" />
-                             <Label fx:id="panel1Label40" text="ПР ВС ОА" />
-                             <Label fx:id="panel1Label41" text="ОТКЛ НАГР" />
-                             <Label fx:id="panel1Label42" text="ЗАПРЕЩЕНО" />
-                             <Label fx:id="panel1Label43" text="вкл" />
-                             <Label fx:id="panel1Label44" text="откл" />
-                             <Label fx:id="panel1Label45" text="откл нагр" />
-                             <Label fx:id="panel1Label46" text="гап" />
-                             <Label fx:id="panel1Label47" text="гом" />
-                             <Label fx:id="panel1Label48" text="ГАП РАБ" />
-                             <Label fx:id="panel1Label49" text="ГОМ РАБ" />
-
-
-                             <Circle fx:id="greenLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
-                             <Circle fx:id="greenLight2" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
-                             <Circle fx:id="greenLight3" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
-                             <Circle fx:id="greenLight4" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
-                             <Circle fx:id="greenLight5" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
-                             <Circle fx:id="greenLight6" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
-                             <Circle fx:id="greenLight7" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
-                             <Circle fx:id="greenLight8" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
-                             <Circle fx:id="greenLight9" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
-                             <Circle fx:id="greenLight10" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
-
-
-
-                             <Circle fx:id="redLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
-                             <Circle fx:id="redLight2" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
-                             <Circle fx:id="redLight3" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
-
-                             <Circle fx:id="redLight4" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
-                             <Circle fx:id="redLight5" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
-
-
-                             <Circle fx:id="yellowLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="yellowLight" />
-
-                             <Circle fx:id="blackLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
-                             <Circle fx:id="blackLight2" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
-
-
-                             <Button fx:id="grayButton1" styleClass="grayButton" />
-
-                             <Button fx:id="grayButton2" styleClass="grayButton" />
-
-                             <Button fx:id="grayButton3" styleClass="grayButton" />
-                             <Button fx:id="grayButton4" styleClass="grayButton" />
-                             <Button fx:id="grayButton5" styleClass="grayButton" />
-                             <Button fx:id="grayButton6" styleClass="grayButton" />
-                             <Button fx:id="grayButton7" styleClass="grayButton" />
-
-                             <Button fx:id="redButton1" styleClass="redButton" />
-
-                             <Button fx:id="redButton2" styleClass="redButton" />
-
-                             <Button fx:id="panel1tumblerButton1" styleClass="blackSwitcher" />
-                             <Button fx:id="panel1tumblerButton2" />
-
-                             <ToggleButton fx:id="panel1tumbler1" />
-                             <ToggleButton fx:id="panel1tumbler2" />
-
-                             <Line fx:id="line1" />
-                             <Line fx:id="line2" />
-                             <Line fx:id="line3" />
-
-                         </children>
-
-                     </Pane>
-                     <Pane fx:id="py" minHeight="0.0" minWidth="0.0" stylesheets="@style.css">
-                         <Label fx:id="panel2Label1" text="ПСТП" />
-                         <Label fx:id="panel2Label2" text="НАРУЖН ВОЗДУХ" />
-                         <Label fx:id="panel2Label3" text="КАБИНА" />
-                         <Label fx:id="panel2Label4" text="КУЗОВ" />
-                         <Label fx:id="panel2Label5" text="ОТКЛ" />
-                         <Label fx:id="panel2Label6" text="ТХМ" />
-                         <Label fx:id="panel2Label7" text="ИЗМЕНЕНИЕ В С" />
-                         <Label fx:id="panel2Label8" text="ЖАЛЮЗИ ДВИГ ОТКР" />
-                         <Label fx:id="panel2Label9" text="РОМ" />
-                         <Label fx:id="panel2Label10" text="ГОМ" />
-                         <Label fx:id="panel2Label11" text="ТХМ" />
-                         <Label fx:id="panel2Label12" text="ЗАКР" />
-                         <Label fx:id="panel2Label13" text="ОТКЛ" />
-                         <Label fx:id="panel2Label14" text="ОТКЛ" />
-                         <Label fx:id="panel2Label15" text="ОТКЛ" />
-                         <Label fx:id="panel2Label16" text="ВКЛЮЧЕНИЕ" />
-                         <Label fx:id="panel2Label17" text="ПУЛЬТА" />
-                         <Label fx:id="panel2Label18" text="ЭЛЕКТРООБОГРЕВ" />
-                         <Label fx:id="panel2Label19" text="ВЕНТИЛЯТОРЫ" />
-                         <Label fx:id="panel2Label20" text="ОТКЛ" />
-                         <Label fx:id="panel2Label21" text="ОТКЛ" />
-                         <Label fx:id="panel2Label22" text="ОТКЛ" />
-                         <Label fx:id="panel2Label23" text="ОТКЛ" />
-                         <Label fx:id="panel2Label24" text="ВКЛ" />
-                         <Label fx:id="panel2Label25" text="КОНТРОЛЬ ЛАМП" />
-
-                         <Circle fx:id="panel2greenLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
-                         <Circle fx:id="panel2greenLight2" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
-                         <Circle fx:id="panel2greenLight3" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
-                         <Circle fx:id="panel2redLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
-
-                         <ToggleButton fx:id="panel2tumbler1" styleClass="Tumbler" />
-                         <ToggleButton fx:id="panel2tumbler2" styleClass="Tumbler" />
-                         <ToggleButton fx:id="panel2tumbler3" styleClass="Tumbler" />
-                         <ToggleButton fx:id="panel2tumbler4" styleClass="Tumbler" />
-                         <ToggleButton fx:id="panel2tumbler5" styleClass="Tumbler" />
-                         <ToggleButton fx:id="panel2tumbler6" styleClass="Tumbler" />
-                         <ToggleButton fx:id="panel2tumbler7" styleClass="Tumbler" />
-                         <ToggleButton fx:id="panel2tumbler8" styleClass="Tumbler" />
-
-                         <Button fx:id="panel2tumblerButton1" rotate="325" styleClass="blackSwitcher" />
-                         <Button fx:id="panel2tumblerButton2" rotate="52" styleClass="blackSwitcher" />
-
-                     </Pane>
-                 </children>
-             </HBox>
-            <Pane fx:id="planeThird" prefHeight="100.0" prefWidth="245.0" stylesheets="@style.css">
-                <Label fx:id="panel3Label1" text="МОЩНОСТЬ" />
-                <Label fx:id="panel3Label2" text="СИСТЕМА Д-20" />
-                <Label fx:id="panel3Label3" text="0,45-0,70" />
-                <Label fx:id="panel3Label4" text="ЗАПРЕТ" />
-                <Label fx:id="panel3Label5" text="ОТКЛ ПИТАНИЯ" />
-                <Label fx:id="panel3Label6" text="КОНТР СИГНАЛА" />
-                <Label fx:id="panel3Label7" text="ЛЧМ" />
-                <Label fx:id="panel3Label8" text="ПРОБОЙ" />
-                <Label fx:id="panel3Label9" text="УЗЛ" />
-                <Label fx:id="panel3Label10" text="ВКЛ" />
-                <Label fx:id="panel3Label11" text="НАКАЛ Д20-0М" />
-                <Label fx:id="panel3Label12" text="ПОДСВЕТ" />
-                <Label fx:id="panel3Label13" text="ШКАЛ" />
-                <Label fx:id="panel3Label14" text="БОЛЬШЕ" />
-                <Label fx:id="panel3Label15" text="ОТКЛ" />
-                <Label fx:id="panel3Label16" text="МЕНЬШЕ" />
-                <Label fx:id="panel3Label17" text="НЕИСПР СЕТИ БК 2" />
-                <Label fx:id="panel3Label18" text="КОНТР." />
-                <Label fx:id="panel3Label19" text="220В 400ГЦ" />
-                <Label fx:id="panel3Label20" text="КОНТР. СИГНАЛ." />
-                <Label fx:id="panel3Label21" text="ЛАМП" />
-                <Label fx:id="panel3Label22" text="НАКАЛ" />
-                <Label fx:id="panel3Label23" text="ГОТОВ" />
-                <Label fx:id="panel3Label24" text="ВЫСОКОЕ" />
-                <Label fx:id="panel3Label25" text="-27 кВ" />
-                <Label fx:id="panel3Label26" text="НЕИСПР. СЕТИ БК 1" />
-                <Label fx:id="panel3Label27" text="ВЫСОКОЕ" />
-                <Label fx:id="panel3Label28" text="МЕНЬШЕ" />
-                <Label fx:id="panel3Label29" text="ВХОДН. МОЩН." />
-                <Label fx:id="panel3Label30" text="БОЛЬШЕ" />
-                <Label fx:id="panel3Label31" text="СУЛ" />
-                <Label fx:id="panel3Label32" text="ВКЛ." />
-                <Label fx:id="panel3Label33" text="ОТКЛ." />
-                <Label fx:id="panel3Label34" text="АНТЕННА" />
-                <Label fx:id="panel3Label35" text="ЭКВИВАЛЕНТ" />
-                <Label fx:id="panel3Label36" text="ОБЛУЧ. БРБ" />
-                <Label fx:id="panel3Label37" text="ОБЛЮЧ. БРА" />
-                <Label fx:id="panel3Label38" text="НЕИСПРАВН." />
-                <Label fx:id="panel3Label39" text="Д94-6(Д50)" />
-                <Label fx:id="panel3Label40" text="НЕИСПРАВН." />
-                <Label fx:id="panel3Label41" text="Д00-10" />
-                <Label fx:id="panel3Label42" text="СУА" />
-                <Label fx:id="panel3Label43" text="ПОВТОРН." />
-                <Label fx:id="panel3Label44" text="ВКЛ" />
-                <Label fx:id="panel3Label45" text="СУЛ" />
-                <Label fx:id="panel3Label46" text="ЗАСТОПР" />
-                <Label fx:id="panel3Label47" text="ЗАСТОПР" />
-                <Label fx:id="panel3Label48" text="Ep ЛЕВ." />
-                <Label fx:id="panel3Label49" text="Ep ЛЕВ." />
-                <Label fx:id="panel3Label50" text="Ep ПРАВ." />
-                <Label fx:id="panel3Label51" text="Ep ЛЕВ." />
-                <Label fx:id="panel3Label52" text="Ep ПРАВ." />
-                <Label fx:id="panel3Label53" text="АНОД Д60-1М" />
-                <Label fx:id="panel3Label54" text="220В 400 Гц" />
-                <Label fx:id="panel3Label55" text="ЛЮКИ ОТКР" />
-                <Label fx:id="panel3Label56" text="ОБЩ" />
-                <Label fx:id="panel3Label57" text="НЕИСПР. ВЕНТИЛ." />
-                <Label fx:id="panel3Label58" text="ПРИВОД" />
-                <Label fx:id="panel3Label59" text="ЭМУ В" />
-                <Label fx:id="panel3Label60" text="ЭМУ В" />
-                <Label fx:id="panel3Label61" text="ВКЛ" />
-                <Label fx:id="panel3Label62" text="ОТКЛ" />
-                <Label fx:id="panel3Label63" text="ВКЛ" />
-                <Label fx:id="panel3Label64" text="ОТКЛ" />
-                <Label fx:id="panel3Label65" text="СНЯТИЕ БЛОКИРОВКИ Д02-7М" />
-                <Label fx:id="panel3Label66" text="БЛОКИР. ЗАЩИТЫ" />
-                <Label fx:id="panel3Label67" text="ОТКЛ" />
-                <Label fx:id="panel3Label68" text="КОНТРЛЬ" />
-                <Label fx:id="panel3Label69" text="Д-52М" />
-                <Label fx:id="panel3Label70" text="ПОХОДНОЕ" />
-                <Label fx:id="panel3Label71" text="СТОПОРЕНИЕ" />
-                <Label fx:id="panel3Label72" text="РАССТОПОРЕНИЕ" />
-                <Label fx:id="panel3Label73" text="СВЕРТ." />
-                <Label fx:id="panel3Label74" text="АНТ. СТС" />
-                <Label fx:id="panel3Label75" text="ЗАСТОПОРЕНО" />
-                <Label fx:id="panel3Label76" text="Д25-М" />
-                <Label fx:id="panel3Label77" text="ВКЛ" />
-                <Label fx:id="panel3Label78" text="ОТКЛ" />
-                <Label fx:id="panel3Label79" text="РАЗВЕРТ" />
-                <Label fx:id="panel3Label80" text="СВЕРТ" />
-                <Label fx:id="panel3Label81" text="СТОП" />
-                <Label fx:id="panel3Label82" text="РАЗВЕРНУТО" />
-                <Label fx:id="panel3Label83" text="АППАРАТУРА" />
-                <Label fx:id="panel3Label84" text="ВКЛ." />
-                <Label fx:id="panel3Label85" text="ОТКЛ." />
-                <Label fx:id="panel3Label86" text="ЭЛ.ПЕЧЬ" />
-                <Label fx:id="panel3Label87" text="ЛЮКИ ОТКР." />
-                <Label fx:id="panel3Label88" text="МЕСН." />
-                <Label fx:id="panel3Label89" text="ОСВЕЩ. ШКАФА." />
-                <Label fx:id="panel3Label90" text="ОТКЛ." />
-                <Label fx:id="panel3Label91" text="ЗАКР" />
-                <Label fx:id="panel3Label92" text="ОТКЛ." />
-
-                <Circle fx:id="panel3redLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
-                <Circle fx:id="panel3redLight2" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
-                <Circle fx:id="panel3redLight3" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
-                <Circle fx:id="panel3redLight4" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
-                <Circle fx:id="panel3redLight5" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
-                <Circle fx:id="panel3redLight6" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
-                <Circle fx:id="panel3redLight7" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
-                <Circle fx:id="panel3redLight8" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="redLight" />
-
-                <Circle fx:id="panel3blackLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
-                <Circle fx:id="panel3blackLight2" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
-                <Circle fx:id="panel3blackLight3" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
-                <Circle fx:id="panel3blackLight4" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
-                <Circle fx:id="panel3blackLight5" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
-                <Circle fx:id="panel3blackLight6" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
-                <Circle fx:id="panel3blackLight7" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
-                <Circle fx:id="panel3blackLight8" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
-                <Circle fx:id="panel3blackLight9" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
-                <Circle fx:id="panel3blackLight10" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
-                <Circle fx:id="panel3blackLight11" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
-                <Circle fx:id="panel3blackLight12" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
-                <Circle fx:id="panel3blackLight13" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
-                <Circle fx:id="panel3blackLight14" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
-                <Circle fx:id="panel3blackLight15" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="blackLight" />
-
-                <Circle fx:id="panel3greenLight1" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
-                <Circle fx:id="panel3greenLight2" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
-                <Circle fx:id="panel3greenLight3" radius="12.0" stroke="BLACK" strokeType="INSIDE" styleClass="greenLight" />
-
-                <ToggleButton fx:id="panel3BlackButton1" styleClass="panel3Button" />
-                <ToggleButton fx:id="panel3BlackButton2" styleClass="panel3Button" />
-                <ToggleButton fx:id="panel3BlackButton3" styleClass="panel3Button" />
-                <ToggleButton fx:id="panel3BlackButton4" styleClass="panel3Button" />
-                <ToggleButton fx:id="panel3BlackButton5" styleClass="panel3Button" />
-                <ToggleButton fx:id="panel3BlackButton6" styleClass="panel3Button" />
-                <ToggleButton fx:id="panel3BlackButton7" styleClass="panel3Button" />
-                <ToggleButton fx:id="panel3BlackButton8" styleClass="panel3Button" />
-                <ToggleButton fx:id="panel3BlackButton9" styleClass="panel3Button" />
-                <ToggleButton fx:id="panel3BlackButton10" styleClass="panel3Button" />
-                <ToggleButton fx:id="panel3BlackButton11" styleClass="panel3Button" />
-                <ToggleButton fx:id="panel3BlackButton12" styleClass="panel3Button" />
-
-                <Circle fx:id="panel3yellowLight" radius="12.0" stroke="lemonchiffon" strokeType="INSIDE" />
-
-                <Button fx:id="panel3switch1" styleClass="panel3switch" />
-                <Button fx:id="panel3switch2" styleClass="panel3switch" />
-                <Button fx:id="panel3switch3" styleClass="panel3switch" />
-
-                <Line fx:id="panel3Line1" />
-
-
-            </Pane>
-         </items>
-         <rotationAxis>
-            <Point3D />
-         </rotationAxis>
-      </SplitPane>
-      <Label fx:id="hint" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="415.0" layoutY="-4.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="472.0" text="" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <padding>
-            <Insets right="10.0" />
-         </padding>
-      </Label>
-   </children>
+            <rotationAxis>
+                <Point3D />
+            </rotationAxis>
+        </SplitPane>
+        <Label fx:id="hint" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="415.0" layoutY="-4.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="472.0" text="" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets right="10.0" />
+            </padding>
+        </Label>
+    </children>
 </AnchorPane>

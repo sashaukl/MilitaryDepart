@@ -1,6 +1,7 @@
 package sample;
 
 
+import com.sun.javafx.css.Size;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -14,7 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBase;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.effect.Bloom;
+import javafx.scene.effect.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
@@ -88,6 +89,9 @@ public class Panel1 extends Controller{
     }
 
     private void init(){
+
+
+
         //labels
         for (int i= 1; i<=49; i++)
             labels.add((Label) root.lookup("#panel1Label" + i));
@@ -104,7 +108,7 @@ public class Panel1 extends Controller{
             blackLights.add((Circle) root.lookup("#blackLight" + i));
         //yellow
         yellowLight1 = (Circle) root.lookup("#yellowLight1");
-            //buttons
+        //buttons
         //gray
         for (int i=1; i <= 7; i++)
             grayButtons.add((Button) root.lookup("#grayButton" + i));
@@ -130,6 +134,7 @@ public class Panel1 extends Controller{
         allLights.addAll(blackLights);
         allLights.add(yellowLight1);
 
+        hint.styleProperty().bind(Bindings.concat("-fx-font-size: ", 15, ";"));
 
     }
 
@@ -224,9 +229,9 @@ public class Panel1 extends Controller{
         setButton(redButtons.get(1), 0.449, 0.75);
 
         setTumbler(tumblers.get(0), 0.23, 0.605);
-        setTumbler(tumblers.get(1), 0.27, 0.69);
+        setTumbler1(tumblers.get(1), 0.27, 0.69);
         setTumbler1(tumblerButtons.get(0), 0.185, 0.435);
-        setTumbler(tumblerButtons.get(1), 0.745, 0.435);
+        setTumbler1(tumblerButtons.get(1), 0.73, 0.435);
 
         line1.startXProperty().bind(splitBox.heightProperty().divide(2).multiply(0.74));
         line1.startYProperty().bind(splitBox.heightProperty().multiply(0.195));
@@ -277,15 +282,19 @@ public class Panel1 extends Controller{
 
         //контр напр А-В В-С С-А
         tumblerButtons.get(1).setOnMouseClicked((event1) -> {
+            if (activeButtons.contains(grayButtons.get(0))){
+                Main.fazeCheck = true;
+                Main.hint.getHint(tumblerButtons.get(1));
+            }
             switch ((int) tumblerButtons.get(1).getRotate()) {
-                case 0:
-                    tumblerButtons.get(1).setRotate(30);
+                case 52:
+                    tumblerButtons.get(1).setRotate(100);
                     break;
-                case 30:
-                    tumblerButtons.get(1).setRotate(330);
-                    break;
-                case 330:
+                case 100:
                     tumblerButtons.get(1).setRotate(0);
+                    break;
+                case 0:
+                    tumblerButtons.get(1).setRotate(52);
                     break;
             }
         });
@@ -317,7 +326,7 @@ public class Panel1 extends Controller{
         //запуск гап
         grayButtons.get(0).setOnAction(event -> {
             line1Rotation = new Rotate();
-            if (Main.activatePanel && !activeButtons.contains(grayButtons.get(0)) &&  tumblerButtons.get(0).getRotate()==320) {
+            if (Main.activatePanel && !activeButtons.contains(grayButtons.get(0)) &&  tumblerButtons.get(0).getRotate()==320 &&activeButtons.contains(grayButtons.get(2))) {
                 activeButtons.add(grayButtons.get(0));
                 line1Rotation.pivotXProperty().bind(line1.startXProperty());
                 line1Rotation.pivotYProperty().bind(line1.startYProperty());
@@ -337,15 +346,23 @@ public class Panel1 extends Controller{
                             lightOn(yellowLight1);
                             addActive(greenLights.get(3));
                             lightOn(greenLights.get(3));
+                        }),
+                        new KeyFrame(Duration.millis(16000), new KeyValue(line3Rotation.angleProperty(), 185)),
+                        new KeyFrame(Duration.millis(16000), new KeyValue(line1Rotation.angleProperty(), 257)),
+                        new KeyFrame(Duration.millis(16000), new KeyValue(line2Rotation.angleProperty(), 145)),
+                        new KeyFrame(Duration.millis(16000), event1 -> {
                             if (!activeButtons.contains(grayButtons.get(1)))
                             {
                                 Main.hint.getHint(grayButtons.get(1));
                             }
                             Main.hint.getHint(grayButtons.get(0));
                         }),
-                        new KeyFrame(Duration.millis(16000), new KeyValue(line3Rotation.angleProperty(), 185)),
-                        new KeyFrame(Duration.millis(16000), new KeyValue(line1Rotation.angleProperty(), 257)),
-                        new KeyFrame(Duration.millis(16000), new KeyValue(line2Rotation.angleProperty(), 145))
+                        new KeyFrame(Duration.millis(16000), event1 -> {
+                            if (!activeButtons.contains(grayButtons.get(1)))
+                            {
+                                Main.decreaseMark();
+                            }
+                        })
                 );
                 timeline.play();
             }
@@ -370,6 +387,9 @@ public class Panel1 extends Controller{
                     if (!getActive().contains(greenLights.get(2)) || !getActive().contains(greenLights.get(5))) {
                         lightOff(greenLights.get(2));
                         lightOff(greenLights.get(5));
+                    }
+                    if (!Main.activationMode && activeButtons.contains(redButtons.get(0))){
+                        Main.ShowMark();
                     }
                 }
             }
@@ -415,6 +435,10 @@ public class Panel1 extends Controller{
             removeActive(greenLights.get(1));
             lightOff(greenLights.get(1));
         });
+
+        grayButtons.get(5).setOnAction(event -> Main.decreaseMark());
+        grayButtons.get(6).setOnAction(event -> Main.decreaseMark());
+
     }
 
     private void lightsCheck(){
@@ -502,7 +526,7 @@ public class Panel1 extends Controller{
         b.layoutYProperty().bind(splitBox.heightProperty().multiply(y));
     }
 
-    private void setTumbler1(Button b, double x, double y){
+    private void setTumbler1(ButtonBase b, double x, double y){
         //buttonBase because using toggleButton and button at this method
         b.minHeightProperty().bind(splitBox.heightProperty().divide(20));
         b.minWidthProperty().bind(splitBox.heightProperty().divide(20));

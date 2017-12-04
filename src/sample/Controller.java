@@ -75,7 +75,6 @@ public class Controller{
                 c.setFill(Color.rgb(250,250,250 ));
                 break;
         }
-        //c.setEffect(new Lighting());
         c.setEffect(bloom);
     }
 

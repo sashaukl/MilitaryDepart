@@ -7,6 +7,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.effect.Bloom;
 import javafx.scene.effect.Effect;
 import javafx.scene.effect.Light;
 import javafx.scene.effect.Lighting;
@@ -133,7 +134,6 @@ public class Panel2 extends Controller{
             if (!lightsWasChecked){
                 Main.decreaseMark();
             }
-
         });
 
     }
@@ -141,8 +141,8 @@ public class Panel2 extends Controller{
     private void lightsCheck(){
         redLight1.setFill(Color.rgb(255, 0,0 ));
         greenLights.forEach(l -> l.setFill((Color.rgb(50,255,50 ))));
-        redLight1.setEffect(lighting);
-        greenLights.forEach(l -> l.setEffect(lighting));
+        redLight1.setEffect(new Bloom());
+        greenLights.forEach(l -> l.setEffect(new Bloom()));
     }
 
     private void lightsUnchek(){

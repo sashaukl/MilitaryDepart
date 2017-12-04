@@ -224,10 +224,6 @@ public class Panel3 extends Controller{
         line1.startYProperty().bind(splitBox.heightProperty().multiply(0.268));
         line1.endXProperty().bind(splitBox.heightProperty().divide(0.75).multiply(0.78));
         line1.endYProperty().bind(splitBox.heightProperty().multiply(0.2));
-
-
-
-
         switchers.get(0).setOnAction(ev -> SwitchRotate(switchers.get(0)));
         switchers.get(1).setOnAction(ev -> SwitchRotate(switchers.get(1)));
 
@@ -242,9 +238,9 @@ public class Panel3 extends Controller{
                 case -40:
                     switchers.get(2).setRotate(0);
                     break;
-
             }
         });
+        blackButtons.forEach(e -> e.setOnAction(event -> Main.decreaseMark()));
 
 
     }
@@ -317,38 +313,38 @@ public class Panel3 extends Controller{
     }
 
     private void SwitchRotate(Button b){
-            switch ((int) b.getRotate()) {
-                case 0:
-                    b.setRotate(36);
-                    break;
-                case 36:
-                    b.setRotate(72);
-                    break;
-                case 72:
-                    b.setRotate(108);
-                    break;
-                case 108:
-                    b.setRotate(144);
-                    break;
-                case 144:
-                    b.setRotate(180);
-                    break;
-                case 180:
-                    b.setRotate(216);
-                    break;
-                case 216:
-                    b.setRotate(252);
-                    break;
-                case 252:
-                    b.setRotate(288);
-                    break;
-                case 288:
-                    b.setRotate(324);
-                    break;
-                case 324:
-                    b.setRotate(0);
-                    break;
-            }
+        switch ((int) b.getRotate()) {
+            case 0:
+                b.setRotate(36);
+                break;
+            case 36:
+                b.setRotate(72);
+                break;
+            case 72:
+                b.setRotate(108);
+                break;
+            case 108:
+                b.setRotate(144);
+                break;
+            case 144:
+                b.setRotate(180);
+                break;
+            case 180:
+                b.setRotate(216);
+                break;
+            case 216:
+                b.setRotate(252);
+                break;
+            case 252:
+                b.setRotate(288);
+                break;
+            case 288:
+                b.setRotate(324);
+                break;
+            case 324:
+                b.setRotate(0);
+                break;
+        }
     }
 
 
